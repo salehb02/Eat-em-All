@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public VariableJoystick Joystick;
     public float MovementSpeed = 2f;
@@ -34,5 +34,8 @@ public class PlayerController : MonoBehaviour
         _smoothedDirection = Vector3.Lerp(_smoothedDirection, new Vector3(_horizontalInput, 0, _verticalInput), Time.deltaTime * 5f);
 
         _controller.SimpleMove(_smoothedDirection * MovementSpeed);
+
+        if (_smoothedDirection != Vector3.zero)
+            transform.rotation = Quaternion.LookRotation(_smoothedDirection);
     }
 }
