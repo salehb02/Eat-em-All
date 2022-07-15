@@ -40,6 +40,7 @@ public class Food : MonoBehaviour
         _moveToPlayer = true;
 
         transform.DOScale(Vector3.zero, 1f);
+        _eatable = false;
     }
 
     public void Spitted(Vector3 pointToGo)
@@ -60,11 +61,10 @@ public class Food : MonoBehaviour
         _moveProgress += Time.deltaTime;
         var timeToReach = 3f;
 
-        transform.position = Vector3.Lerp(transform.position, _player.transform.position, _moveProgress / timeToReach);
+        transform.position = Vector3.Lerp(transform.position, _player.Mouth.transform.position, _moveProgress / timeToReach);
 
-        if (Vector3.Distance(transform.position, _player.transform.position) < 0.2f)
+        if (Vector3.Distance(transform.position, _player.Mouth.transform.position) < 0.2f)
         {
-            _player.EatFood(this);
             gameObject.SetActive(false);
             transform.SetParent(_player.transform);
             _moveToPlayer = false;

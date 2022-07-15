@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _presentor = GetComponent<GameManagerPresentor>();
+        UpdateUI();
     }
 
     public void AddMoney(int amount)
