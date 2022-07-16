@@ -141,9 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4897ba9b987f9d44d9c1f7867f18236f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodCapacity: 10
-  PlayerSize: 2
   Mouth: {fileID: 1391121610814041954}
+  FaceMaterial: {fileID: 2100000, guid: 7d1ca3746e26713439e572baa97ecddc, type: 2}
+  Upgrades:
+  - Title: Level 0
+    FoodCapacity: 10
+    PlayerFoodSize: 2
+    PlayerScale: {x: 1, y: 1, z: 1}
+    UpgradeNeededMoney: 0
 --- !u!1001 &1391121612028414443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,19 +229,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7803368691184288858, guid: 7095d8bd70a7e2647a7bc70912b84d89, type: 3}
   m_PrefabInstance: {fileID: 1391121612028414443}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1391121610718581272
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9152831525612637617}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.73734957
-  m_Center: {x: -0.00000071525574, y: 0.7691153, z: -0.0082410015}
 --- !u!95 &1391121612028414438
 Animator:
   serializedVersion: 3
@@ -256,3 +248,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &1391121610718581272
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9152831525612637617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.73734957
+  m_Center: {x: -0.00000071525574, y: 0.7691153, z: -0.0082410015}

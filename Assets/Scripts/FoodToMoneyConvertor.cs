@@ -3,6 +3,14 @@ using UnityEngine;
 public class FoodToMoneyConvertor : MonoBehaviour
 {
     public GameObject FoodEnterPoint;
+    public GameObject MoneySpawnPoint;
+
+    private GameManager _gameManager;
+
+    private void Start()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +19,7 @@ public class FoodToMoneyConvertor : MonoBehaviour
 
         var player = other.GetComponentInParent<Player>();
 
-        player?.SpitFoods(FoodEnterPoint.transform.position);
+        player?.SpitFoods(this);
+
     }
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Money MoneyPrefab;
+
     private GameManagerPresentor _presentor;
     private int _currentMoney;
 
@@ -11,11 +13,25 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void SpawnMoney(int moneyValue,Transform point)
+    {
+        var money = Instantiate(MoneyPrefab, point.position, point.rotation, null);
+        money.SetValue(moneyValue);
+    }
+
     public void AddMoney(int amount)
     {
         _currentMoney += amount;
         UpdateUI();
     }
+
+    public void UseMoney(int amount)
+    {
+        _currentMoney -= amount;
+        UpdateUI();
+    }
+
+    public int GetMoney() => _currentMoney;
 
     public void UpdateFoodCapacity(int currentAmount, int maxCapacity)
     {
