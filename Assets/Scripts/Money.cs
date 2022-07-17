@@ -39,11 +39,12 @@ public class Money : MonoBehaviour
 
         _moveProgress += Time.deltaTime;
         var timeToReach = 3f;
-        transform.position = Vector3.Lerp(transform.position, _player.transform.position, _moveProgress / timeToReach);
+        transform.position = Vector3.Lerp(transform.position, _player.Mouth.transform.position, _moveProgress / timeToReach);
 
-        if (Vector3.Distance(transform.position, _player.transform.position) < 0.2f)
+        if (Vector3.Distance(transform.position, _player.Mouth.transform.position) < 0.2f)
         {
             _gameManager.AddMoney(_value);
+            _player.TriggerEatAnimation();
             Destroy(gameObject);
         }
     }

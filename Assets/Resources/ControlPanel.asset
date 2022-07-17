@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6868313cbba75984a80b7afebeda847d, type: 3}
+  m_Name: ControlPanel
+  m_EditorClassIdentifier: 
+  SpeedUpgrades:
+  - Title: Default
+    Price: 0
+    Value: 10
+  - Title: Level 1
+    Price: 20
+    Value: 12
+  - Title: Level 2
+    Price: 70
+    Value: 15
+  - Title: Level 3
+    Price: 150
+    Value: 18
+  CapacityUpgrades:
+  - Title: Default
+    Price: 0
+    Value: 10
+  - Title: Level 1
+    Price: 30
+    Value: 15
+  - Title: Level 2
+    Price: 60
+    Value: 20
+  - Title: Level 3
+    Price: 100
+    Value: 25
+  SizeUpgrades:
+  - Title: Default
+    Price: 0
+    PlayerScale: {x: 1, y: 1, z: 1}
+    FoodSizeSupport: 2
+    CameraOffset: 15
+  - Title: Level 1
+    Price: 30
+    PlayerScale: {x: 1.5, y: 1.5, z: 1.5}
+    FoodSizeSupport: 3
+    CameraOffset: 20
+  - Title: Level 2
+    Price: 75
+    PlayerScale: {x: 2, y: 2, z: 2}
+    FoodSizeSupport: 4
+    CameraOffset: 25
+  - Title: Level 2
+    Price: 100
+    PlayerScale: {x: 2, y: 2, z: 2}
+    FoodSizeSupport: 4
+    CameraOffset: 25
+  - Title: Level 3
+    Price: 150
+    PlayerScale: {x: 2.5, y: 2.5, z: 2.5}
+    FoodSizeSupport: 5
+    CameraOffset: 30

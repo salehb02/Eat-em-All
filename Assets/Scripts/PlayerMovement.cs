@@ -3,8 +3,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public VariableJoystick Joystick;
-    public float NormalSpeed = 2f;
-    public float FatSpeed = 2f;
 
     private CharacterController _controller;
     private Vector3 _smoothedDirection;
@@ -12,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float _velocity;
     private Animator _animator;
     private Player _player;
+    private float _currentSpeed;
 
     // Inputs
     private float _horizontalInput;
@@ -28,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        _currentSpeed = _player.PlayerSpeed;
+
         Inputs();
         Movement();
         GetVelocity();
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _smoothedDirection = Vector3.Lerp(_smoothedDirection, new Vector3(_horizontalInput, 0, _verticalInput), Time.deltaTime * 5f);
 
-        _controller.SimpleMove(_smoothedDirection * Mathf.Lerp(NormalSpeed, FatSpeed, _player.Fatness));
+        _controller.SimpleMove(_smoothedDirection * Mathf.Lerp(_currentSpeed, _currentSpeed / 2f, _player.Fatness));
 
         if (_smoothedDirection != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(_smoothedDirection);

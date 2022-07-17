@@ -112,7 +112,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.5
+  m_Radius: 4
   m_Center: {x: 0, y: 0.73, z: 0}
 --- !u!114 &1391121610998419788
 MonoBehaviour:
@@ -127,8 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Joystick: {fileID: 0}
-  NormalSpeed: 10
-  FatSpeed: 5
 --- !u!114 &1391121610998419790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,12 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mouth: {fileID: 1391121610814041954}
   FaceMaterial: {fileID: 2100000, guid: 7d1ca3746e26713439e572baa97ecddc, type: 2}
-  Upgrades:
-  - Title: Level 0
-    FoodCapacity: 10
-    PlayerFoodSize: 2
-    PlayerScale: {x: 1, y: 1, z: 1}
-    UpgradeNeededMoney: 0
 --- !u!1001 &1391121612028414443
 PrefabInstance:
   m_ObjectHideFlags: 0

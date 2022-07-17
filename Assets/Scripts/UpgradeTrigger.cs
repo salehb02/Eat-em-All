@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class UpgradeTrigger : MonoBehaviour
 {
-    public GameObject MoneyEntrance;
+    private GameManagerPresentor _presentor;
+
+    private void Start()
+    {
+        _presentor = FindObjectOfType<GameManagerPresentor>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
             return;
 
-        var player = other.GetComponentInParent<Player>();
+        _presentor.SetUpgradePanelActivation(true);
+    }
 
-        if (!player.CheckUpgrade())
-            player.ThrowMoney(MoneyEntrance.transform.position);
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        _presentor.SetUpgradePanelActivation(false);
     }
 }
