@@ -4,16 +4,27 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Money MoneyPrefab;
+    public GameObject NextLevelPanel;
 
     private GameManagerPresentor _presentor;
     private CameraFollow _camera;
     private int _currentMoney;
+    private int _initFoodsCount;
 
     public int SpeedUpgrade { get; private set; }
     public int CapacityUpgrade { get; private set; }
     public int SizeUpgrade { get; private set; }
 
     public const string MONEY_PREFS = "PLAYER_MONEY";
+    public const string LEVEL_PREFS = "CURRENT_LEVEL";
+
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey(LEVEL_PREFS) && PlayerPrefs.GetInt(LEVEL_PREFS) != SceneManager.GetActiveScene().buildIndex)
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
+        }
+    }
 
     private void Start()
     {
@@ -22,6 +33,8 @@ public class GameManager : MonoBehaviour
 
         _currentMoney = PlayerPrefs.GetInt(MONEY_PREFS);
         UpdateUI();
+        NextLevelPanel.gameObject.SetActive(false);
+        _initFoodsCount = FindObjectsOfType<Food>().Length;
     }
 
     private void Update()
@@ -161,5 +174,23 @@ public class GameManager : MonoBehaviour
     private int GetFinalPrice(int price)
     {
         return System.Convert.ToInt32(price * Mathf.Clamp(ControlPanel.Instance.PriceMultiplierPerLevel * SceneManager.GetActiveScene().buildIndex, 1, Mathf.Infinity));
+    }
+
+    public void CheckEndLevel(int eatenFoodsCount)
+    {
+        if (_initFoodsCount - eatenFoodsCount >= _initFoodsCount * 0.1f)
+            return;
+
+        if (PlayerPrefs.GetInt(LEVEL_PREFS) < SceneManager.sceneCountInBuildSettings - 1)
+            PlayerPrefs.SetInt(LEVEL_PREFS, SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            PlayerPrefs.SetInt(LEVEL_PREFS, Random.Range(0, SceneManager.sceneCountInBuildSettings));
+
+        NextLevelPanel.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
     }
 }

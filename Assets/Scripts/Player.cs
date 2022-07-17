@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Material FaceMaterial;
 
     private List<Food> _eatenFoods = new List<Food>();
+    private int _foodsEatenTilNow;
 
     private GameManager _gameManager;
     private Animator _animator;
@@ -49,7 +50,9 @@ public class Player : MonoBehaviour
     public void EatFood(Food food)
     {
         _eatenFoods.Add(food);
+        _foodsEatenTilNow++;
         _animator.SetTrigger("Eat");
+        _gameManager.CheckEndLevel(_foodsEatenTilNow);
     }
 
     public void SpitFoods(FoodToMoneyConvertor convertor)
