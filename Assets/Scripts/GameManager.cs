@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private CameraFollow _camera;
     private int _currentMoney;
     private int _initFoodsCount;
+    private Player _player;
 
     public int SpeedUpgrade { get; private set; }
     public int CapacityUpgrade { get; private set; }
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         _camera = FindObjectOfType<CameraFollow>();
         _presentor = GetComponent<GameManagerPresentor>();
+        _player = FindObjectOfType<Player>();
 
         _currentMoney = PlayerPrefs.GetInt(MONEY_PREFS);
         UpdateUI();
@@ -187,6 +189,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(LEVEL_PREFS, Random.Range(0, SceneManager.sceneCountInBuildSettings));
 
         NextLevelPanel.SetActive(true);
+        _player.ActivateNextLevelArrow(NextLevelPanel.transform.position);
     }
 
     public void NextLevel()

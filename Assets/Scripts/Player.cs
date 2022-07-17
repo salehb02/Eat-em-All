@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     public GameObject Mouth;
     public Material FaceMaterial;
+    public GameObject ToNextLevelArrow;
+    public ParticleSystem FatnessParticle;
+    public int MaxParticlesCount = 20;
 
     private List<Food> _eatenFoods = new List<Food>();
     private int _foodsEatenTilNow;
@@ -13,6 +16,8 @@ public class Player : MonoBehaviour
     private GameManager _gameManager;
     private Animator _animator;
     private PlayerMovement _movement;
+    private Vector3 _nextLevelTriggerPos;
+    private bool _showNextLevelArrow;
 
     public int FoodCapacity { get; private set; }
     public float FoodSize { get; private set; }
@@ -25,6 +30,8 @@ public class Player : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
         _animator = GetComponentInChildren<Animator>();
         _movement = GetComponent<PlayerMovement>();
+
+        ToNextLevelArrow.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -35,8 +42,25 @@ public class Player : MonoBehaviour
         _animator.SetFloat("Fat", Fatness);
         FaceMaterial.SetFloat("_Fatness", Fatness);
 
+        var emission = FatnessParticle.emission;
+        emission.rateOverTimeMultiplier = Mathf.Lerp(0,MaxParticlesCount,Fatness);
+
         transform.localScale = Vector3.Lerp(transform.localScale, PlayerScale, Time.deltaTime * 3f);
         _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
+
+        ToNextLevelArrow.transform.rotation = Quaternion.LookRotation((_nextLevelTriggerPos - transform.position).normalized);
+
+        if (_showNextLevelArrow)
+        {
+            if (Vector3.Distance(transform.position, _nextLevelTriggerPos) > 8f)
+            {
+                ToNextLevelArrow.SetActive(true);
+            }
+            else
+            {
+                ToNextLevelArrow.SetActive(false);
+            }
+        }
     }
 
     private void LoadUpgrades()
@@ -112,5 +136,11 @@ public class Player : MonoBehaviour
     public void TriggerEatAnimation()
     {
         _animator.SetTrigger("Eat");
+    }
+
+    public void ActivateNextLevelArrow(Vector3 nextLevelPos)
+    {
+        _showNextLevelArrow = true;
+        _nextLevelTriggerPos = nextLevelPos;
     }
 }
