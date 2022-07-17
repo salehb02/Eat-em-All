@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class GameManager : MonoBehaviour
     public int CapacityUpgrade { get; private set; }
     public int SizeUpgrade { get; private set; }
 
+    public const string MONEY_PREFS = "PLAYER_MONEY";
+
     private void Start()
     {
         _camera = FindObjectOfType<CameraFollow>();
         _presentor = GetComponent<GameManagerPresentor>();
 
+        _currentMoney = PlayerPrefs.GetInt(MONEY_PREFS);
         UpdateUI();
     }
 
@@ -35,12 +39,14 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         _currentMoney += amount;
+        PlayerPrefs.SetInt(MONEY_PREFS, _currentMoney);
         UpdateUI();
     }
 
     public void UseMoney(int amount)
     {
         _currentMoney -= amount;
+        PlayerPrefs.SetInt(MONEY_PREFS, _currentMoney);
         UpdateUI();
     }
 
@@ -60,9 +66,11 @@ public class GameManager : MonoBehaviour
             _presentor.SetSizeUpgradePrice("Maxed");
         else
         {
-            if (GetMoney() >= ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price)
+            var price = GetFinalPrice(ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price);
+
+            if (GetMoney() >= price)
             {
-                _presentor.SetSizeUpgradePrice($"${ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price.ToString("#,#")}");
+                _presentor.SetSizeUpgradePrice($"${price.ToString("#,#")}");
             }
             else
             {
@@ -75,9 +83,11 @@ public class GameManager : MonoBehaviour
             _presentor.SetCapacityUpgradePrice("Maxed");
         else
         {
-            if (GetMoney() >= ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price)
+            var price = GetFinalPrice(ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price);
+
+            if (GetMoney() >= price)
             {
-                _presentor.SetCapacityUpgradePrice($"${ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price.ToString("#,#")}");
+                _presentor.SetCapacityUpgradePrice($"${price.ToString("#,#")}");
             }
             else
             {
@@ -90,9 +100,11 @@ public class GameManager : MonoBehaviour
             _presentor.SetSizeUpgradePrice("Maxed");
         else
         {
-            if (GetMoney() >= ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price)
+            var price = GetFinalPrice(ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price);
+
+            if (GetMoney() >= price)
             {
-                _presentor.SetSizeUpgradePrice($"${ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price.ToString("#,#")}");
+                _presentor.SetSizeUpgradePrice($"${price.ToString("#,#")}");
             }
             else
             {
@@ -106,10 +118,12 @@ public class GameManager : MonoBehaviour
         if (SpeedUpgrade >= ControlPanel.Instance.SpeedUpgrades.Length - 1)
             return;
 
-        if (GetMoney() < ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price)
+        var price = GetFinalPrice(ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price);
+
+        if (GetMoney() < price)
             return;
 
-        UseMoney(ControlPanel.Instance.SpeedUpgrades[SpeedUpgrade + 1].Price);
+        UseMoney(price);
         SpeedUpgrade++;
         UpdateUI();
     }
@@ -119,10 +133,12 @@ public class GameManager : MonoBehaviour
         if (CapacityUpgrade >= ControlPanel.Instance.CapacityUpgrades.Length - 1)
             return;
 
-        if (GetMoney() < ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price)
+        var price = GetFinalPrice(ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price);
+
+        if (GetMoney() < price)
             return;
 
-        UseMoney(ControlPanel.Instance.CapacityUpgrades[CapacityUpgrade + 1].Price);
+        UseMoney(price);
         CapacityUpgrade++;
         UpdateUI();
     }
@@ -132,11 +148,18 @@ public class GameManager : MonoBehaviour
         if (SizeUpgrade >= ControlPanel.Instance.SizeUpgrades.Length - 1)
             return;
 
-        if (GetMoney() < ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price)
+        var price = GetFinalPrice(ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price);
+
+        if (GetMoney() < price)
             return;
 
-        UseMoney(ControlPanel.Instance.SizeUpgrades[SizeUpgrade + 1].Price);
+        UseMoney(price);
         SizeUpgrade++;
         UpdateUI();
+    }
+
+    private int GetFinalPrice(int price)
+    {
+        return System.Convert.ToInt32(price * Mathf.Clamp(ControlPanel.Instance.PriceMultiplierPerLevel * SceneManager.GetActiveScene().buildIndex, 1, Mathf.Infinity));
     }
 }
