@@ -64,3 +64,5 @@ MonoBehaviour:
     PlayerScale: {x: 2.5, y: 2.5, z: 2.5}
     FoodSizeSupport: 5
     CameraOffset: 30
+  PriceMultiplierPerLevel: 1.2
+  BeRedWhileVacuuming: 1

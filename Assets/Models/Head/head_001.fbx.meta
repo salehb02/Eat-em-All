@@ -42,6 +42,21 @@ ModelImporter:
   - first:
       74: -5472432848164019633
     second: head_armature.001|head_walk_full
+  - first:
+      74: 7253759266669675376
+    second: head_armature.001|head_open_mouth
+  - first:
+      74: -1076251001149209624
+    second: head_armature.001|head_close_mouth
+  - first:
+      74: 563552071494926052
+    second: head_armature.001|head_open_mouth_full
+  - first:
+      74: -7054185780717559895
+    second: head_armature.001|head_idle_mouth
+  - first:
+      74: -2963919383976090066
+    second: head_armature.001|head_idle_mouth_full
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -100,9 +115,35 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: head_armature.001|head_eat_full
@@ -129,9 +170,35 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: head_armature.001|head_idle
@@ -245,9 +312,35 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: head_armature.001|head_walk
@@ -306,6 +399,226 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature.001|head_open_mouth
+      takeName: head_armature.001|head_eat
+      internalID: 0
+      firstFrame: 2.95
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature.001|head_open_mouth_full
+      takeName: head_armature.001|head_eat_full
+      internalID: 0
+      firstFrame: 2.95
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature.001|head_idle_mouth
+      takeName: head_armature.001|head_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature.001|head_idle_mouth_full
+      takeName: head_armature.001|head_idle_full
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001.001
+        weight: 0
+      - path: head_armature.001
+        weight: 0
+      - path: head_armature.001/base
+        weight: 0
+      - path: head_armature.001/base/head
+        weight: 1
+      - path: head_armature.001/base/head/mouth
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature.001/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature.001/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
@@ -370,7 +683,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

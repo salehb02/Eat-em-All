@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _controller;
     private Vector3 _smoothedDirection;
     private Vector3 _previousPosition;
-    private float _velocity;
     private Animator _animator;
     private Player _player;
     private float _currentSpeed;
@@ -16,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float _horizontalInput;
     private float _verticalInput;
 
-    public bool Controllable { get; set; } = true;
+    public float Velocity { get; private set; }
 
     private void Start()
     {
@@ -36,12 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Inputs()
     {
-        if (!Controllable)
-        {
-            _horizontalInput = _verticalInput = 0f;
-            return;
-        }
-
         _horizontalInput = Joystick.Horizontal;
         _verticalInput = Joystick.Vertical;
     }
@@ -55,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
         if (_smoothedDirection != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(_smoothedDirection);
 
-        _animator.SetFloat("Velocity", _velocity);
+        _animator.SetFloat("Velocity", Velocity);
     }
 
-    private void GetVelocity()
+    public void GetVelocity()
     {
-        _velocity = ((transform.position - _previousPosition).magnitude) / Time.deltaTime;
+        Velocity = ((transform.position - _previousPosition).magnitude) / Time.deltaTime;
         _previousPosition = transform.position;
     }
 }

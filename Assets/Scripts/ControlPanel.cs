@@ -8,6 +8,7 @@ public class ControlPanel : ScriptableObject
     public SizeUpgrade[] SizeUpgrades;
 
     public float PriceMultiplierPerLevel = 1.2f;
+    public bool BeRedWhileVacuuming;
 
     [System.Serializable]
     public class Upgrade

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public int MaxParticlesCount = 20;
 
     private List<Food> _eatenFoods = new List<Food>();
+    private List<Food> _vacumingFoods = new List<Food>();
+    private float _mouthOpen;
     private int _foodsEatenTilNow;
 
     private GameManager _gameManager;
@@ -31,7 +33,6 @@ public class Player : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _movement = GetComponent<PlayerMovement>();
 
-        ToNextLevelArrow.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -40,27 +41,47 @@ public class Player : MonoBehaviour
 
         Fatness = _eatenFoods.Count / (float)FoodCapacity;
         _animator.SetFloat("Fat", Fatness);
-        FaceMaterial.SetFloat("_Fatness", Fatness);
+
+        if (_vacumingFoods.Count == 0 || !ControlPanel.Instance.BeRedWhileVacuuming)
+            FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), Fatness, Time.deltaTime * 2f));
 
         var emission = FatnessParticle.emission;
-        emission.rateOverTimeMultiplier = Mathf.Lerp(0,MaxParticlesCount,Fatness);
+
+        if (Fatness >= 0.5f)
+        {
+            emission.rateOverTimeMultiplier = Mathf.Lerp(0, MaxParticlesCount, Fatness);
+        }
+        else
+        {
+            emission.rateOverTimeMultiplier = Mathf.Lerp(emission.rateOverTimeMultiplier, 0, Time.deltaTime * 5f);
+        }
 
         transform.localScale = Vector3.Lerp(transform.localScale, PlayerScale, Time.deltaTime * 3f);
         _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
+     
+        ToNextLevelTriggerArrow();
+        FoodVacumMode();
+    }
 
-        ToNextLevelArrow.transform.rotation = Quaternion.LookRotation((_nextLevelTriggerPos - transform.position).normalized);
-
-        if (_showNextLevelArrow)
+    private void ToNextLevelTriggerArrow()
+    {
+        if (!_showNextLevelArrow || Vector3.Distance(transform.position, _nextLevelTriggerPos) <= 8f)
         {
-            if (Vector3.Distance(transform.position, _nextLevelTriggerPos) > 8f)
-            {
-                ToNextLevelArrow.SetActive(true);
-            }
-            else
-            {
-                ToNextLevelArrow.SetActive(false);
-            }
+            ToNextLevelArrow.gameObject.SetActive(false);
+            return;
         }
+
+        ToNextLevelArrow.SetActive(true);
+        ToNextLevelArrow.transform.rotation = Quaternion.LookRotation((_nextLevelTriggerPos - transform.position).normalized);
+    }
+
+    private void FoodVacumMode()
+    {
+        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacumingFoods.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
+        _animator.SetFloat("MouthOpen", _mouthOpen);
+
+        if (ControlPanel.Instance.BeRedWhileVacuuming)
+            FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), 1, Time.deltaTime));
     }
 
     private void LoadUpgrades()
@@ -79,16 +100,16 @@ public class Player : MonoBehaviour
         _gameManager.CheckEndLevel(_foodsEatenTilNow);
     }
 
-    public void SpitFoods(FoodToMoneyConvertor convertor)
+    public int SpitFoods(FoodToMoneyConvertor convertor)
     {
         StartCoroutine(SpitFoodsCoroutine(convertor));
+        return _eatenFoods.Count;
     }
 
     private IEnumerator SpitFoodsCoroutine(FoodToMoneyConvertor convertor)
     {
         if (_eatenFoods.Count > 0)
         {
-            _movement.Controllable = false;
             _animator.SetTrigger("Spit");
         }
 
@@ -98,23 +119,28 @@ public class Player : MonoBehaviour
             _eatenFoods.Remove(food);
             _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
             _gameManager.SpawnMoney(food.Prize, convertor.MoneySpawnPoint.transform);
+            convertor.TriggerVacuum();
             yield return new WaitForSeconds(0.2f);
         }
-
-        _movement.Controllable = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (_eatenFoods.Count >= FoodCapacity)
-            return;
-
         if (other.CompareTag("Money"))
         {
+            var headingMoney = other.transform.position - transform.position;
+            var dotMoney = Vector3.Dot(headingMoney, transform.forward);
+
+            if (dotMoney < 0.1f)
+                return;
+
             var money = other.GetComponentInParent<Money>();
             money?.MoveToPlayer(this);
             return;
         }
+
+        if (_eatenFoods.Count >= FoodCapacity)
+            return;
 
         if (!other.CompareTag("Food"))
             return;
@@ -124,13 +150,47 @@ public class Player : MonoBehaviour
         if (!food)
             return;
 
+        // Check if food is in front
+        var heading = food.transform.position - transform.position;
+
+        var dot = Vector3.Dot(heading, transform.forward);
+
+        if (dot < 0.1f)
+        {
+            if (_vacumingFoods.Contains(food))
+                _vacumingFoods.Remove(food);
+
+            return;
+        }
+
         var canEat = food.CanEat(FoodSize);
 
         if (canEat)
         {
-            food.EatFood(this);
+            food.EatFood();
             EatFood(food);
         }
+        else
+        {
+            food.SetJustVacum(true);
+
+            if (!_vacumingFoods.Contains(food) && food.Eaten == false)
+                _vacumingFoods.Add(food);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Food"))
+            return;
+
+        var food = other.GetComponent<Food>();
+
+        if (!food)
+            return;
+
+        food.SetJustVacum(false);
+        _vacumingFoods.Remove(food);
     }
 
     public void TriggerEatAnimation()

@@ -5,11 +5,11 @@ public class FoodToMoneyConvertor : MonoBehaviour
     public GameObject FoodEnterPoint;
     public GameObject MoneySpawnPoint;
 
-    private GameManager _gameManager;
+    private Animator _animator;
 
     private void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,8 +18,11 @@ public class FoodToMoneyConvertor : MonoBehaviour
             return;
 
         var player = other.GetComponentInParent<Player>();
-
         player?.SpitFoods(this);
+    }
 
+    public void TriggerVacuum()
+    {
+        _animator.SetTrigger("Vacuum");
     }
 }
