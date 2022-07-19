@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(LEVEL_PREFS) && PlayerPrefs.GetInt(LEVEL_PREFS) != SceneManager.GetActiveScene().buildIndex)
         {
-            SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
+            //SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
         }
     }
 

@@ -4860,8 +4860,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257544943}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.032, z: 1.9099998}
-  m_LocalScale: {x: 0.8418414, y: 0.2729118, z: 0.5938916}
+  m_LocalPosition: {x: 0.01, y: 0.032, z: 1.7878}
+  m_LocalScale: {x: 0.7932672, y: 0.5106725, z: 0.5938916}
   m_Children: []
   m_Father: {fileID: 85593807}
   m_RootOrder: 0
@@ -4977,7 +4977,7 @@ Transform:
   m_GameObject: {fileID: 1391121610998419795}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.01, z: -25.924534}
-  m_LocalScale: {x: 1.38, y: 1.38, z: 1.38}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1496594484726590976}
   - {fileID: 1391121610814041885}
@@ -5013,7 +5013,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -5030,7 +5030,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 1
   m_Center: {x: 0, y: 0.73, z: 0}
 --- !u!114 &1391121610998419788
 MonoBehaviour:

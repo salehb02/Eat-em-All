@@ -15,20 +15,20 @@ MonoBehaviour:
   SpeedUpgrades:
   - Title: Default
     Price: 0
-    Value: 10
+    Value: 8
   - Title: Level 1
     Price: 20
-    Value: 12
+    Value: 9
   - Title: Level 2
     Price: 70
-    Value: 15
+    Value: 10
   - Title: Level 3
     Price: 150
-    Value: 18
+    Value: 11
   CapacityUpgrades:
   - Title: Default
     Price: 0
-    Value: 10
+    Value: 100
   - Title: Level 1
     Price: 30
     Value: 15
@@ -41,22 +41,22 @@ MonoBehaviour:
   SizeUpgrades:
   - Title: Default
     Price: 0
-    PlayerScale: {x: 1, y: 1, z: 1}
-    FoodSizeSupport: 2
+    PlayerScale: {x: 2.5, y: 2.5, z: 2.5}
+    FoodSizeSupport: 1
     CameraOffset: 15
   - Title: Level 1
     Price: 30
-    PlayerScale: {x: 1.5, y: 1.5, z: 1.5}
-    FoodSizeSupport: 3
+    PlayerScale: {x: 2.5, y: 2.5, z: 2.5}
+    FoodSizeSupport: 2
     CameraOffset: 20
   - Title: Level 2
     Price: 75
-    PlayerScale: {x: 2, y: 2, z: 2}
-    FoodSizeSupport: 4
+    PlayerScale: {x: 3, y: 3, z: 3}
+    FoodSizeSupport: 3
     CameraOffset: 25
   - Title: Level 2
     Price: 100
-    PlayerScale: {x: 2, y: 2, z: 2}
+    PlayerScale: {x: 3.5, y: 3.5, z: 3.5}
     FoodSizeSupport: 4
     CameraOffset: 25
   - Title: Level 3
