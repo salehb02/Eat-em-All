@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Food
   - Money
+  - Vacuumable
   layers:
   - Default
   - TransparentFX

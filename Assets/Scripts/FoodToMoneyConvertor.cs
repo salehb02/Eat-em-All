@@ -21,8 +21,5 @@ public class FoodToMoneyConvertor : MonoBehaviour
         player?.SpitFoods(this);
     }
 
-    public void TriggerVacuum()
-    {
-        _animator.SetTrigger("Vacuum");
-    }
+    public void TriggerVacuum() => _animator.SetTrigger("Vacuum");
 }

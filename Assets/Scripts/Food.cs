@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class Food : MonoBehaviour,IVacuumable
+public class Food : MonoBehaviour, IVacuumable
 {
     public float FoodSize = 1;
     public int Prize = 5;
@@ -9,7 +9,6 @@ public class Food : MonoBehaviour,IVacuumable
     private bool _moveToPlayer;
     private float _moveProgress;
     private Player _player;
-    private PlayerMovement _playerMovement;
     private Vector3 _initScale;
     private bool _eatable = true;
     private Vector3 _startLerpPos;
@@ -19,7 +18,6 @@ public class Food : MonoBehaviour,IVacuumable
     {
         _initScale = transform.localScale;
         _player = FindObjectOfType<Player>();
-        _playerMovement = _player.GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -28,7 +26,7 @@ public class Food : MonoBehaviour,IVacuumable
             MoveToPlayer();
     }
 
-    public bool CanEat(float playerSize)
+    public bool IsEatable(float playerSize)
     {
         if (!_eatable)
             return false;
@@ -37,17 +35,6 @@ public class Food : MonoBehaviour,IVacuumable
             return true;
 
         return false;
-    }
-
-    public void EatFood()
-    {
-        _moveToPlayer = true;
-
-        transform.DOScale(Vector3.zero, 1f);
-        _eatable = false;
-        Eaten = true;
-
-        _startLerpPos = transform.position;
     }
 
     public void Spitted(Vector3 pointToGo)
@@ -60,7 +47,7 @@ public class Food : MonoBehaviour,IVacuumable
             Destroy(gameObject, 1f);
         });
 
-        transform.DOScale(_initScale, 0.25f).OnComplete(()=>
+        transform.DOScale(_initScale, 0.25f).OnComplete(() =>
         {
             transform.DOScale(Vector3.zero, 0.25f);
         });
@@ -69,22 +56,32 @@ public class Food : MonoBehaviour,IVacuumable
     private void MoveToPlayer()
     {
         _moveProgress += Time.deltaTime;
-        var timeToReach = 1f;
+        var timeToReach = (FoodSize / _player.FoodSize) * 2f;
 
         transform.position = Vector3.Lerp(_startLerpPos, _player.Mouth.transform.position, _moveProgress / timeToReach);
 
         if (Vector3.Distance(transform.position, _player.Mouth.transform.position) < 0.2f)
-        {
-            gameObject.SetActive(false);
-            transform.SetParent(_player.transform);
-            _moveToPlayer = false;
-            _eatable = false;
-            OnEndVaccum();
-        }
+            EndVaccum();
     }
 
-    public void OnEndVaccum()
+    public void EndVaccum()
     {
+        gameObject.SetActive(false);
+        transform.SetParent(_player.transform);
+        _moveToPlayer = false;
+        _eatable = false;
+        _player.EatFood(this);
         _player.EndVacuuming(this);
+    }
+
+    public void StartVacuum()
+    {
+        _moveToPlayer = true;
+
+        transform.DOScale(Vector3.zero, 1f);
+        _eatable = false;
+        Eaten = true;
+
+        _startLerpPos = transform.position;
     }
 }

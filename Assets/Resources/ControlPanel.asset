@@ -66,3 +66,4 @@ MonoBehaviour:
     CameraOffset: 30
   PriceMultiplierPerLevel: 1.2
   BeRedWhileVacuuming: 1
+  LoadLastLevel: 0

@@ -1,4 +1,5 @@
 public interface IVacuumable
 {
-    public void OnEndVaccum();
+    public void StartVacuum();
+    public void EndVaccum();
 }

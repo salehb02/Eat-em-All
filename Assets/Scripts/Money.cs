@@ -27,15 +27,6 @@ public class Money : MonoBehaviour, IVacuumable
 
     public void SetValue(int value) => _value = value;
 
-    // Trigger to start moving to player
-    public void StartMoveToPlayer()
-    {
-        _moveToPlayer = true;
-
-        foreach (var collider in GetComponentsInChildren<Collider>())
-            collider.enabled = false;
-    }
-
     private void MovingToPlayer()
     {
         if (!_moveToPlayer)
@@ -48,14 +39,22 @@ public class Money : MonoBehaviour, IVacuumable
 
         if (Vector3.Distance(transform.position, _player.Mouth.transform.position) < 0.3f)
         {
-            _gameManager.AddMoney(_value);
-            OnEndVaccum();
+            EndVaccum();
             Destroy(gameObject);
         }
     }
 
-    public void OnEndVaccum()
+    public void EndVaccum()
     {
+        _gameManager.AddMoney(_value);
         _player.EndVacuuming(this);
+    }
+
+    public void StartVacuum()
+    {
+        _moveToPlayer = true;
+
+        foreach (var collider in GetComponentsInChildren<Collider>())
+            collider.enabled = false;
     }
 }

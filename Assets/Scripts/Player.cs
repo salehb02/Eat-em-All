@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Public variables
     public GameObject Mouth;
     public Material FaceMaterial;
     public GameObject ToNextLevelArrow;
     public ParticleSystem FatnessParticle;
     public int MaxParticlesCount = 20;
 
+    // Private variables
     private List<Food> _eatenFoods = new List<Food>();
-    private List<IVacuumable> _vacuumingToEat = new List<IVacuumable>();
+    private List<IVacuumable> _vacuuming = new List<IVacuumable>();
     private List<Food> _justVacumingFoods = new List<Food>();
     private float _mouthOpen;
     private int _foodsEatenTilNow;
-
+    private bool _showNextLevelArrow;
+    private Vector3 _nextLevelTriggerPos;
     private GameManager _gameManager;
     private Animator _animator;
-    private Vector3 _nextLevelTriggerPos;
-    private bool _showNextLevelArrow;
 
+    // Properties
     public int FoodCapacity { get; private set; }
     public float FoodSize { get; private set; }
     public Vector3 PlayerScale { get; private set; }
@@ -41,10 +43,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         LoadUpgrades();
-
-        Fatness = _eatenFoods.Count / (float)FoodCapacity;
-        _animator.SetFloat("Fat", Fatness);
-
+        ProcessFatness();
         ProcessUpgrades();
         ProcessMaterials();
         ProcessParticles();
@@ -53,9 +52,15 @@ public class Player : MonoBehaviour
         MouthControl();
     }
 
+    private void ProcessFatness()
+    {
+        Fatness = _eatenFoods.Count / (float)FoodCapacity;
+        _animator.SetFloat("Fat", Fatness);
+    }
+
     private void MouthControl()
     {
-        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuumingToEat.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
+        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
         _animator.SetFloat("MouthOpen", _mouthOpen);
     }
 
@@ -99,7 +104,7 @@ public class Player : MonoBehaviour
 
     private void FoodVacumMode()
     {
-        if (_justVacumingFoods.Count == 0 || _vacuumingToEat.Count > 0)
+        if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0)
             return;
 
         _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f);
@@ -123,18 +128,17 @@ public class Player : MonoBehaviour
         _gameManager.CheckEndLevel(_foodsEatenTilNow);
     }
 
-    public int SpitFoods(FoodToMoneyConvertor convertor)
+    public void SpitFoods(FoodToMoneyConvertor convertor)
     {
         StartCoroutine(SpitFoodsCoroutine(convertor));
-        return _eatenFoods.Count;
     }
 
     private IEnumerator SpitFoodsCoroutine(FoodToMoneyConvertor convertor)
     {
-        if (_eatenFoods.Count > 0)
-        {
-            _animator.SetTrigger("Spit");
-        }
+        if (_eatenFoods.Count == 0)
+            yield break;
+
+        _animator.SetTrigger("Spit");
 
         foreach (var food in _eatenFoods.ToArray())
         {
@@ -149,70 +153,63 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Money"))
-        {
-            var headingMoney = other.transform.position - transform.position;
-            var dotMoney = Vector3.Dot(headingMoney, transform.forward);
-
-            if (dotMoney < 0.1f)
-                return;
-
-            var money = other.GetComponentInParent<Money>();
-            money?.StartMoveToPlayer();
-            AddVacuumbale(money);
-            return;
-        }
-
-        if (_eatenFoods.Count >= FoodCapacity)
+        if (!other.CompareTag("Vacuumable"))
             return;
 
-        if (!other.CompareTag("Food"))
-            return;
-
-        var food = other.GetComponent<Food>();
-
-        if (!food)
-            return;
-
-        // Check if food is in front
-        var heading = food.transform.position - transform.position;
+        // Check if object is in front
+        var heading = other.transform.position - transform.position;
         var dot = Vector3.Dot(heading, transform.forward);
 
-        if (dot < 0.1f)
+        // Get any vacuumable objects
+        if (other.TryGetComponent<IVacuumable>(out var vacuumable))
         {
-            if (_justVacumingFoods.Contains(food))
-                _justVacumingFoods.Remove(food);
+            // Return if vacuumable is not in front
+            if (dot < 0.1f)
+                return;
 
-            return;
+            vacuumable.StartVacuum();
+            AddVacuumbale(vacuumable);
         }
 
-        var canEat = food.CanEat(FoodSize);
-
-        if (canEat)
+        // Get foods
+        if (other.TryGetComponent<Food>(out var food))
         {
-            food.EatFood();
-            EatFood(food);
+            // Return if food is not in front
+            if (dot < 0.1f)
+            {
+                if (_justVacumingFoods.Contains(food))
+                    _justVacumingFoods.Remove(food);
 
-            AddVacuumbale(food);
-        }
-        else
-        {
-            if (!_justVacumingFoods.Contains(food) && food.Eaten == false)
-                _justVacumingFoods.Add(food);
+                return;
+            }
+
+            // Return if player is full
+            if (_eatenFoods.Count >= FoodCapacity)
+                return;
+
+            // Check if food is eatable
+            if (food.IsEatable(FoodSize))
+            {
+                food.StartVacuum();
+                AddVacuumbale(food);
+            }
+            else
+            {
+                if (!_justVacumingFoods.Contains(food) && food.Eaten == false)
+                    _justVacumingFoods.Add(food);
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Food"))
+        if (!other.CompareTag("Vacuumable"))
             return;
 
-        var food = other.GetComponent<Food>();
-
-        if (!food)
-            return;
-
-        _justVacumingFoods.Remove(food);
+        if (other.TryGetComponent<Food>(out var food))
+        {
+            _justVacumingFoods.Remove(food);
+        }
     }
 
     public void ActivateNextLevelArrow(Vector3 nextLevelPos)
@@ -223,9 +220,9 @@ public class Player : MonoBehaviour
 
     public void AddVacuumbale(IVacuumable vacuumable)
     {
-        if (!_vacuumingToEat.Contains(vacuumable))
-            _vacuumingToEat.Add(vacuumable);
+        if (!_vacuuming.Contains(vacuumable))
+            _vacuuming.Add(vacuumable);
     }
 
-    public void EndVacuuming(IVacuumable vaccumable) => _vacuumingToEat.Remove(vaccumable);
+    public void EndVacuuming(IVacuumable vaccumable) => _vacuuming.Remove(vaccumable);
 }
