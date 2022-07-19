@@ -89,11 +89,11 @@ public class GameManager : MonoBehaviour
 
             if (GetMoney() >= price)
             {
-                _presentor.SetSizeUpgradePrice($"${price.ToString("#,#")}");
+                _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
-                _presentor.SetSizeUpgradePrice("Not enough $");
+                _presentor.SetSizeUpgradePrice("Not enough");
             }
         }
 
@@ -106,11 +106,11 @@ public class GameManager : MonoBehaviour
 
             if (GetMoney() >= price)
             {
-                _presentor.SetCapacityUpgradePrice($"${price.ToString("#,#")}");
+                _presentor.SetCapacityUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
-                _presentor.SetCapacityUpgradePrice("Not enough $");
+                _presentor.SetCapacityUpgradePrice("Not enough");
             }
         }
 
@@ -123,11 +123,11 @@ public class GameManager : MonoBehaviour
 
             if (GetMoney() >= price)
             {
-                _presentor.SetSizeUpgradePrice($"${price.ToString("#,#")}");
+                _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
-                _presentor.SetSizeUpgradePrice("Not enough $");
+                _presentor.SetSizeUpgradePrice("Not enough");
             }
         }
 

@@ -160,17 +160,6 @@ public class Player : MonoBehaviour
         var heading = other.transform.position - transform.position;
         var dot = Vector3.Dot(heading, transform.forward);
 
-        // Get any vacuumable objects
-        if (other.TryGetComponent<IVacuumable>(out var vacuumable))
-        {
-            // Return if vacuumable is not in front
-            if (dot < 0.1f)
-                return;
-
-            vacuumable.StartVacuum();
-            AddVacuumbale(vacuumable);
-        }
-
         // Get foods
         if (other.TryGetComponent<Food>(out var food))
         {
@@ -198,6 +187,20 @@ public class Player : MonoBehaviour
                 if (!_justVacumingFoods.Contains(food) && food.Eaten == false)
                     _justVacumingFoods.Add(food);
             }
+
+            return;
+        }
+
+        // Get any vacuumable objects
+        if (other.TryGetComponent<IVacuumable>(out var vacuumable))
+        {
+            // Return if vacuumable is not in front
+            if (dot < 0.1f)
+                return;
+
+            vacuumable.StartVacuum();
+            AddVacuumbale(vacuumable);
+            return;
         }
     }
 

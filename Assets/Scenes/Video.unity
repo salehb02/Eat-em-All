@@ -803,8 +803,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -3691,6 +3691,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodCapacityText: {fileID: 29754415}
   MoneyText: {fileID: 1243532776}
+  CurrentLevelText: {fileID: 0}
+  LevelProgressSlider: {fileID: 0}
+  UpgradePanel: {fileID: 0}
+  UpgradeSpeed: {fileID: 0}
+  UpgradeCapacity: {fileID: 0}
+  UpgradeSize: {fileID: 0}
+  UpgradeSpeedPrice: {fileID: 0}
+  UpgradeCapacityPrice: {fileID: 0}
+  UpgradeSizePrice: {fileID: 0}
+  SpeedCurrentLevel: {fileID: 0}
+  CapacityCurrentLevel: {fileID: 0}
+  SizeCurrentLevel: {fileID: 0}
 --- !u!114 &1458691064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3704,6 +3716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyPrefab: {fileID: 4945886016370927298, guid: e711e931c11aaa24aaf0639ecb0a35a7, type: 3}
+  NextLevelPanel: {fileID: 0}
 --- !u!4 &1458691065
 Transform:
   m_ObjectHideFlags: 0
