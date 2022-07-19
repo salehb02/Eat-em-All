@@ -56,9 +56,10 @@ public class Food : MonoBehaviour, IVacuumable
     private void MoveToPlayer()
     {
         _moveProgress += Time.deltaTime;
-        var timeToReach = (FoodSize / _player.FoodSize) * 2f;
+        var timeToReach = (FoodSize / _player.FoodSize);
 
         transform.position = Vector3.Lerp(_startLerpPos, _player.Mouth.transform.position, _moveProgress / timeToReach);
+        transform.localScale = Vector3.Lerp(_initScale, Vector3.zero, _moveProgress / timeToReach);
 
         if (Vector3.Distance(transform.position, _player.Mouth.transform.position) < 0.2f)
             EndVaccum();
@@ -78,7 +79,6 @@ public class Food : MonoBehaviour, IVacuumable
     {
         _moveToPlayer = true;
 
-        transform.DOScale(Vector3.zero, 1f);
         _eatable = false;
         Eaten = true;
 

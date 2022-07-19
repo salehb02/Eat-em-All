@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5066579428939690116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5365358739912682684}
+  - component: {fileID: 6273118427510505376}
+  - component: {fileID: 2254238429281664349}
+  m_Layer: 0
+  m_Name: Cup Cake
+  m_TagString: Vacuumable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5365358739912682684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066579428939690116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.5, y: 0.28, z: -26.23}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children:
+  - {fileID: 2923039357246182275}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6273118427510505376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066579428939690116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5917818, y: 0.5876218, z: 0.590586}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2254238429281664349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066579428939690116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13549928d2b79d44b98cd8e7a540ad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoodSize: 2
+  Prize: 12
+--- !u!1001 &3394027139762779240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5365358739912682684}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.41773
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.41773
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.41773
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.418
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003774895
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1.110223e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.11022296e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+      propertyPath: m_Name
+      value: cup_cake_001
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+--- !u!4 &2923039357246182275 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4e00d642d340a74bb0c4548af5e86ee, type: 3}
+  m_PrefabInstance: {fileID: 3394027139762779240}
+  m_PrefabAsset: {fileID: 0}
