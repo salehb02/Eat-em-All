@@ -1,13 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class Food : MonoBehaviour
+public class Food : MonoBehaviour,IVacuumable
 {
     public float FoodSize = 1;
     public int Prize = 5;
 
     private bool _moveToPlayer;
-    private bool _justVacum;
     private float _moveProgress;
     private Player _player;
     private PlayerMovement _playerMovement;
@@ -27,9 +26,6 @@ public class Food : MonoBehaviour
     {
         if (_moveToPlayer)
             MoveToPlayer();
-
-        //if (_justVacum && FoodSize > _player.FoodSize + 1)
-          //  MoveToPlayerNotEatable();
     }
 
     public bool CanEat(float playerSize)
@@ -51,12 +47,6 @@ public class Food : MonoBehaviour
         _eatable = false;
         Eaten = true;
 
-        _startLerpPos = transform.position;
-    }
-
-    public void SetJustVacum(bool active)
-    {
-        _justVacum = active;
         _startLerpPos = transform.position;
     }
 
@@ -89,20 +79,12 @@ public class Food : MonoBehaviour
             transform.SetParent(_player.transform);
             _moveToPlayer = false;
             _eatable = false;
+            OnEndVaccum();
         }
     }
 
-    private void MoveToPlayerNotEatable()
+    public void OnEndVaccum()
     {
-        if (_playerMovement.Velocity > 0.1f)
-        {
-            _moveProgress = 0;
-            return;
-        }
-
-        _moveProgress += Time.deltaTime / (FoodSize - _player.FoodSize) * 0.1f;
-        var timeToReach = 1f;
-
-        transform.position = Vector3.Lerp(_startLerpPos, _player.Mouth.transform.position, _moveProgress / timeToReach);
+        _player.EndVacuuming(this);
     }
 }

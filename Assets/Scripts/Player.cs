@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
     public int MaxParticlesCount = 20;
 
     private List<Food> _eatenFoods = new List<Food>();
-    private List<Food> _vacumingFoods = new List<Food>();
+    private List<IVacuumable> _vacuumingToEat = new List<IVacuumable>();
+    private List<Food> _justVacumingFoods = new List<Food>();
     private float _mouthOpen;
     private int _foodsEatenTilNow;
 
     private GameManager _gameManager;
     private Animator _animator;
-    private PlayerMovement _movement;
     private Vector3 _nextLevelTriggerPos;
     private bool _showNextLevelArrow;
 
@@ -29,10 +29,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        // Load needed components
         _gameManager = FindObjectOfType<GameManager>();
         _animator = GetComponentInChildren<Animator>();
-        _movement = GetComponent<PlayerMovement>();
 
+        // Reset particles
+        var emission = FatnessParticle.emission;
+        emission.rateOverTimeMultiplier = 0;
     }
 
     private void Update()
@@ -42,9 +45,34 @@ public class Player : MonoBehaviour
         Fatness = _eatenFoods.Count / (float)FoodCapacity;
         _animator.SetFloat("Fat", Fatness);
 
-        if (_vacumingFoods.Count == 0 || !ControlPanel.Instance.BeRedWhileVacuuming)
-            FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), Fatness, Time.deltaTime * 2f));
+        ProcessUpgrades();
+        ProcessMaterials();
+        ProcessParticles();
+        ToNextLevelTriggerArrow();
+        FoodVacumMode();
+        MouthControl();
+    }
 
+    private void MouthControl()
+    {
+        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuumingToEat.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
+        _animator.SetFloat("MouthOpen", _mouthOpen);
+    }
+
+    private void ProcessUpgrades()
+    {
+        transform.localScale = Vector3.Lerp(transform.localScale, PlayerScale, Time.deltaTime * 3f);
+        _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
+    }
+
+    private void ProcessMaterials()
+    {
+        if (_justVacumingFoods.Count == 0 || !ControlPanel.Instance.BeRedWhileVacuuming)
+            FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), Fatness, Time.deltaTime * 2f));
+    }
+
+    private void ProcessParticles()
+    {
         var emission = FatnessParticle.emission;
 
         if (Fatness >= 0.5f)
@@ -55,12 +83,6 @@ public class Player : MonoBehaviour
         {
             emission.rateOverTimeMultiplier = Mathf.Lerp(emission.rateOverTimeMultiplier, 0, Time.deltaTime * 5f);
         }
-
-        transform.localScale = Vector3.Lerp(transform.localScale, PlayerScale, Time.deltaTime * 3f);
-        _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
-     
-        ToNextLevelTriggerArrow();
-        FoodVacumMode();
     }
 
     private void ToNextLevelTriggerArrow()
@@ -77,8 +99,10 @@ public class Player : MonoBehaviour
 
     private void FoodVacumMode()
     {
-        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacumingFoods.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
-        _animator.SetFloat("MouthOpen", _mouthOpen);
+        if (_justVacumingFoods.Count == 0 || _vacuumingToEat.Count > 0)
+            return;
+
+        _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f);
 
         if (ControlPanel.Instance.BeRedWhileVacuuming)
             FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), 1, Time.deltaTime));
@@ -96,7 +120,6 @@ public class Player : MonoBehaviour
     {
         _eatenFoods.Add(food);
         _foodsEatenTilNow++;
-        _animator.SetTrigger("Eat");
         _gameManager.CheckEndLevel(_foodsEatenTilNow);
     }
 
@@ -135,7 +158,8 @@ public class Player : MonoBehaviour
                 return;
 
             var money = other.GetComponentInParent<Money>();
-            money?.MoveToPlayer(this);
+            money?.StartMoveToPlayer();
+            AddVacuumbale(money);
             return;
         }
 
@@ -152,13 +176,12 @@ public class Player : MonoBehaviour
 
         // Check if food is in front
         var heading = food.transform.position - transform.position;
-
         var dot = Vector3.Dot(heading, transform.forward);
 
         if (dot < 0.1f)
         {
-            if (_vacumingFoods.Contains(food))
-                _vacumingFoods.Remove(food);
+            if (_justVacumingFoods.Contains(food))
+                _justVacumingFoods.Remove(food);
 
             return;
         }
@@ -169,13 +192,13 @@ public class Player : MonoBehaviour
         {
             food.EatFood();
             EatFood(food);
+
+            AddVacuumbale(food);
         }
         else
         {
-            food.SetJustVacum(true);
-
-            if (!_vacumingFoods.Contains(food) && food.Eaten == false)
-                _vacumingFoods.Add(food);
+            if (!_justVacumingFoods.Contains(food) && food.Eaten == false)
+                _justVacumingFoods.Add(food);
         }
     }
 
@@ -189,13 +212,7 @@ public class Player : MonoBehaviour
         if (!food)
             return;
 
-        food.SetJustVacum(false);
-        _vacumingFoods.Remove(food);
-    }
-
-    public void TriggerEatAnimation()
-    {
-        _animator.SetTrigger("Eat");
+        _justVacumingFoods.Remove(food);
     }
 
     public void ActivateNextLevelArrow(Vector3 nextLevelPos)
@@ -203,4 +220,12 @@ public class Player : MonoBehaviour
         _showNextLevelArrow = true;
         _nextLevelTriggerPos = nextLevelPos;
     }
+
+    public void AddVacuumbale(IVacuumable vacuumable)
+    {
+        if (!_vacuumingToEat.Contains(vacuumable))
+            _vacuumingToEat.Add(vacuumable);
+    }
+
+    public void EndVacuuming(IVacuumable vaccumable) => _vacuumingToEat.Remove(vaccumable);
 }

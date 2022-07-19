@@ -13706,6 +13706,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 136303017, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1391121610998419788, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
       propertyPath: Joystick
       value: 
