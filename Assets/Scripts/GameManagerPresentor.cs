@@ -6,6 +6,8 @@ public class GameManagerPresentor : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI FoodCapacityText;
     [SerializeField] private TextMeshProUGUI MoneyText;
+    [SerializeField] private TextMeshProUGUI CurrentLevelText;
+    [SerializeField] private Slider LevelProgressSlider;
 
     [Header("Upgrade Panel")]
     public GameObject UpgradePanel;
@@ -15,6 +17,9 @@ public class GameManagerPresentor : MonoBehaviour
     public TextMeshProUGUI UpgradeSpeedPrice;
     public TextMeshProUGUI UpgradeCapacityPrice;
     public TextMeshProUGUI UpgradeSizePrice;
+    public TextMeshProUGUI SpeedCurrentLevel;
+    public TextMeshProUGUI CapacityCurrentLevel;
+    public TextMeshProUGUI SizeCurrentLevel;
 
     private GameManager _gameManager;
 
@@ -36,4 +41,9 @@ public class GameManagerPresentor : MonoBehaviour
     public void SetSpeedUpgradePrice(string value) => UpgradeSpeedPrice.text = value;
     public void SetCapacityUpgradePrice(string value) => UpgradeCapacityPrice.text = value;
     public void SetSizeUpgradePrice(string value) => UpgradeSizePrice.text = value;
+    public void SetSpeedCurrentLevel(int value) => SpeedCurrentLevel.text = value.ToString();
+    public void SetCapacityCurrentLevel(int value) => CapacityCurrentLevel.text = value.ToString();
+    public void SetSizeCurrentLevel(int value) => SizeCurrentLevel.text = value.ToString();
+    public void SetLevelProgressSlider(float value) => LevelProgressSlider.value = value;
+    public void SetCurrentLevelText(int value) => CurrentLevelText.text = value.ToString();
 }

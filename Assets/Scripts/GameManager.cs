@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(LEVEL_PREFS) && PlayerPrefs.GetInt(LEVEL_PREFS) != SceneManager.GetActiveScene().buildIndex)
         {
-            //SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
+            if (ControlPanel.Instance.LoadLastLevel)
+                SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
         }
     }
 
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         NextLevelPanel.gameObject.SetActive(false);
         _initFoodsCount = FindObjectsOfType<Food>().Length;
+
+        _presentor.SetCurrentLevelText(SceneManager.GetActiveScene().buildIndex + 1);
+        _presentor.SetLevelProgressSlider(0);
     }
 
     private void Update()
@@ -126,6 +130,10 @@ public class GameManager : MonoBehaviour
                 _presentor.SetSizeUpgradePrice("Not enough $");
             }
         }
+
+        _presentor.SetSpeedCurrentLevel(SpeedUpgrade + 1);
+        _presentor.SetCapacityCurrentLevel(CapacityUpgrade + 1);
+        _presentor.SetSizeCurrentLevel(SizeUpgrade + 1);
     }
 
     public void UpgradeSpeed()
@@ -180,6 +188,8 @@ public class GameManager : MonoBehaviour
 
     public void CheckEndLevel(int eatenFoodsCount)
     {
+        _presentor.SetLevelProgressSlider(Mathf.Lerp(1, 0, (_initFoodsCount * 0.9f - eatenFoodsCount) / (_initFoodsCount * 0.9f)));
+
         if (_initFoodsCount - eatenFoodsCount >= _initFoodsCount * 0.1f)
             return;
 

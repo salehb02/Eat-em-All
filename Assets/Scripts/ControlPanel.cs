@@ -9,6 +9,7 @@ public class ControlPanel : ScriptableObject
 
     public float PriceMultiplierPerLevel = 1.2f;
     public bool BeRedWhileVacuuming;
+    public bool LoadLastLevel;
 
     [System.Serializable]
     public class Upgrade
