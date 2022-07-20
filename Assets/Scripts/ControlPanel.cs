@@ -12,6 +12,7 @@ public class ControlPanel : ScriptableObject
     public bool LoadLastLevel;
     public float MouthSpeed = 1f;
     public float FoodVacuumSpeedMultiplier = 2f;
+    public float MinFoodVacuumSpeed;
 
     [System.Serializable]
     public class Upgrade
