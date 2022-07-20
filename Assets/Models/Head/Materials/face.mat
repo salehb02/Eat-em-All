@@ -182,7 +182,7 @@ Material:
     - _DrawnMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fatness: 0.0013466354
+    - _Fatness: 0.96399236
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1

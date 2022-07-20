@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
+
         _camera = FindObjectOfType<CameraFollow>();
         _presentor = GetComponent<GameManagerPresentor>();
         _player = FindObjectOfType<Player>();
