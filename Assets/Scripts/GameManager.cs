@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (SpeedUpgrade == ControlPanel.Instance.SpeedUpgrades.Length - 1)
         {
             _presentor.SetSpeedUpgradeIntractable(false);
-            _presentor.SetSizeUpgradePrice("Maxed");
+            _presentor.SetSpeedUpgradePrice("Maxed");
         }
         else
         {
@@ -100,12 +100,12 @@ public class GameManager : MonoBehaviour
             if (GetMoney() >= price)
             {
                 _presentor.SetSpeedUpgradeIntractable(true);
-                _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");
+                _presentor.SetSpeedUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
                 _presentor.SetSpeedUpgradeIntractable(false);
-                _presentor.SetSizeUpgradePrice("Not enough");
+                _presentor.SetSpeedUpgradePrice("Not enough");
             }
         }
 
