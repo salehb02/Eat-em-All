@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Current Project/Control Panel")]
 public class ControlPanel : ScriptableObject
 {
-    public UpgradeExtended[] SpeedUpgrades;
+    public SpeedUpgrade[] SpeedUpgrades;
     public UpgradeExtended[] CapacityUpgrades;
     public SizeUpgrade[] SizeUpgrades;
 
@@ -24,6 +24,13 @@ public class ControlPanel : ScriptableObject
     public class UpgradeExtended : Upgrade
     {
         public float Value;
+    }
+
+    [System.Serializable]
+    public class SpeedUpgrade : Upgrade
+    {
+        public float NormalSpeed;
+        public float FatSpeed;
     }
 
     [System.Serializable]

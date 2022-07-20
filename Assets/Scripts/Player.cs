@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private List<Food> _justVacumingFoods = new List<Food>();
     private float _mouthOpen;
     private bool _closeMouth;
+    private bool _spitting;
     private int _foodsEatenTilNow;
     private bool _showNextLevelArrow;
     private Vector3 _nextLevelTriggerPos;
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
     public int FoodCapacity { get; private set; }
     public float FoodSize { get; private set; }
     public Vector3 PlayerScale { get; private set; }
-    public float PlayerSpeed { get; private set; }
+    public float PlayerNormalSpeed { get; private set; }
+    public float PlayerFatSpeed { get; private set; }
     public float Fatness { get; private set; }
 
     private void Start()
@@ -61,11 +63,18 @@ public class Player : MonoBehaviour
 
     private void MouthControl()
     {
-        if (_justVacumingFoods.Count == 0 && !_closeMouth)
-            _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 0.8f : 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
+        if (!_spitting)
+        {
+            if (_justVacumingFoods.Count == 0 && !_closeMouth)
+                _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 0.8f : 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
 
-        if (_closeMouth)
-            _mouthOpen = Mathf.Lerp(_mouthOpen, 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
+            if (_closeMouth)
+                _mouthOpen = Mathf.Lerp(_mouthOpen, 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
+        }
+        else
+        {
+            _mouthOpen = Mathf.Lerp(_mouthOpen, 0.8f, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
+        }
 
         _animator.SetFloat("MouthOpen", _mouthOpen);
     }
@@ -110,7 +119,7 @@ public class Player : MonoBehaviour
 
     private void FoodVacumMode()
     {
-        if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0 || _closeMouth)
+        if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0 || _closeMouth || _spitting)
             return;
 
         _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
@@ -124,7 +133,8 @@ public class Player : MonoBehaviour
         FoodCapacity = System.Convert.ToInt32(ControlPanel.Instance.CapacityUpgrades[_gameManager.CapacityUpgrade].Value);
         FoodSize = ControlPanel.Instance.SizeUpgrades[_gameManager.SizeUpgrade].FoodSizeSupport;
         PlayerScale = ControlPanel.Instance.SizeUpgrades[_gameManager.SizeUpgrade].PlayerScale;
-        PlayerSpeed = ControlPanel.Instance.SpeedUpgrades[_gameManager.SpeedUpgrade].Value;
+        PlayerNormalSpeed = ControlPanel.Instance.SpeedUpgrades[_gameManager.SpeedUpgrade].NormalSpeed;
+        PlayerFatSpeed = ControlPanel.Instance.SpeedUpgrades[_gameManager.SpeedUpgrade].FatSpeed;
     }
 
     public void EatFood(Food food)
@@ -153,7 +163,7 @@ public class Player : MonoBehaviour
         if (_eatenFoods.Count == 0)
             yield break;
 
-        _animator.SetTrigger("Spit");
+        _spitting = true;
 
         foreach (var food in _eatenFoods.ToArray())
         {
@@ -164,6 +174,8 @@ public class Player : MonoBehaviour
             convertor.TriggerVacuum();
             yield return new WaitForSeconds(0.2f);
         }
+
+        _spitting = false;
     }
 
     private void OnTriggerStay(Collider other)

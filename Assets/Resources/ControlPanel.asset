@@ -15,16 +15,20 @@ MonoBehaviour:
   SpeedUpgrades:
   - Title: Default
     Price: 0
-    Value: 8
+    NormalSpeed: 6
+    FatSpeed: 3
   - Title: Level 1
     Price: 20
-    Value: 9
+    NormalSpeed: 8
+    FatSpeed: 4
   - Title: Level 2
     Price: 70
-    Value: 10
+    NormalSpeed: 10
+    FatSpeed: 5
   - Title: Level 3
     Price: 150
-    Value: 11
+    NormalSpeed: 12
+    FatSpeed: 6
   CapacityUpgrades:
   - Title: Default
     Price: 0
