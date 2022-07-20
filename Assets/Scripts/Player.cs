@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private List<IVacuumable> _vacuuming = new List<IVacuumable>();
     private List<Food> _justVacumingFoods = new List<Food>();
     private float _mouthOpen;
+    private bool _closeMouth;
     private int _foodsEatenTilNow;
     private bool _showNextLevelArrow;
     private Vector3 _nextLevelTriggerPos;
@@ -48,8 +49,8 @@ public class Player : MonoBehaviour
         ProcessMaterials();
         ProcessParticles();
         ToNextLevelTriggerArrow();
-        FoodVacumMode();
         MouthControl();
+        FoodVacumMode();
     }
 
     private void ProcessFatness()
@@ -60,7 +61,12 @@ public class Player : MonoBehaviour
 
     private void MouthControl()
     {
-        _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 1 : 0, Time.deltaTime * 5f);
+        if (_justVacumingFoods.Count == 0 && !_closeMouth)
+            _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 0.8f : 0, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
+
+        if (_closeMouth)
+            _mouthOpen = Mathf.Lerp(_mouthOpen, 0, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
+
         _animator.SetFloat("MouthOpen", _mouthOpen);
     }
 
@@ -104,10 +110,10 @@ public class Player : MonoBehaviour
 
     private void FoodVacumMode()
     {
-        if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0)
+        if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0 || _closeMouth)
             return;
 
-        _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f);
+        _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
 
         if (ControlPanel.Instance.BeRedWhileVacuuming)
             FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), 1, Time.deltaTime));
@@ -126,6 +132,15 @@ public class Player : MonoBehaviour
         _eatenFoods.Add(food);
         _foodsEatenTilNow++;
         _gameManager.CheckEndLevel(_foodsEatenTilNow);
+
+        StartCoroutine(CloseMouthCoroutine());
+    }
+
+    private IEnumerator CloseMouthCoroutine()
+    {
+        _closeMouth = true;
+        yield return new WaitForSeconds(0.2f);
+        _closeMouth = false;
     }
 
     public void SpitFoods(FoodToMoneyConvertor convertor)

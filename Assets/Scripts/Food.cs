@@ -56,7 +56,7 @@ public class Food : MonoBehaviour, IVacuumable
     private void MoveToPlayer()
     {
         _moveProgress += Time.deltaTime;
-        var timeToReach = (FoodSize / _player.FoodSize);
+        var timeToReach = (FoodSize / _player.FoodSize) / ControlPanel.Instance.FoodVacuumSpeedMultiplier;
 
         transform.position = Vector3.Lerp(_startLerpPos, _player.Mouth.transform.position, _moveProgress / timeToReach);
         transform.localScale = Vector3.Lerp(_initScale, Vector3.zero, _moveProgress / timeToReach);

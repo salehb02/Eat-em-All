@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float _verticalInput;
 
     public float Velocity { get; private set; }
+    public Transform CustomObjectLookAt { get; set; }
 
     private void Start()
     {
@@ -45,8 +46,15 @@ public class PlayerMovement : MonoBehaviour
 
         _controller.SimpleMove(_smoothedDirection * Mathf.Lerp(_currentSpeed, _currentSpeed / 2f, _player.Fatness));
 
-        if (_smoothedDirection != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(_smoothedDirection);
+        if (CustomObjectLookAt == null)
+        {
+            if (_smoothedDirection != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(_smoothedDirection);
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(CustomObjectLookAt.transform.position - transform.position);
+        }
 
         _animator.SetFloat("Velocity", Velocity);
     }

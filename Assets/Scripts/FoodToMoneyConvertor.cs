@@ -19,6 +19,18 @@ public class FoodToMoneyConvertor : MonoBehaviour
 
         var player = other.GetComponentInParent<Player>();
         player?.SpitFoods(this);
+
+        var playerMovement = other.GetComponentInParent<PlayerMovement>();
+        playerMovement.CustomObjectLookAt = FoodEnterPoint.transform;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        var player = other.GetComponentInParent<PlayerMovement>();
+        player.CustomObjectLookAt = null;
     }
 
     public void TriggerVacuum() => _animator.SetTrigger("Vacuum");
