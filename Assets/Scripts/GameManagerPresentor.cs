@@ -44,6 +44,9 @@ public class GameManagerPresentor : MonoBehaviour
     public void SetSpeedCurrentLevel(int value) => SpeedCurrentLevel.text = value.ToString();
     public void SetCapacityCurrentLevel(int value) => CapacityCurrentLevel.text = value.ToString();
     public void SetSizeCurrentLevel(int value) => SizeCurrentLevel.text = value.ToString();
+    public void SetSpeedUpgradeIntractable(bool value) => UpgradeSpeed.interactable = value;
+    public void SetCapacityUpgradeIntractable(bool value) => UpgradeCapacity.interactable = value;
+    public void SetSizeUpgradeIntractable(bool value) => UpgradeSize.interactable = value;
     public void SetLevelProgressSlider(float value) => LevelProgressSlider.value = value;
     public void SetCurrentLevelText(int value) => CurrentLevelText.text = value.ToString();
 }

@@ -67,5 +67,5 @@ MonoBehaviour:
   PriceMultiplierPerLevel: 1.2
   BeRedWhileVacuuming: 1
   LoadLastLevel: 0
-  OpenMouthSpeed: 5
+  MouthSpeed: 5
   FoodVacuumSpeedMultiplier: 3

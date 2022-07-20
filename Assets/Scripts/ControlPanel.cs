@@ -10,7 +10,7 @@ public class ControlPanel : ScriptableObject
     public float PriceMultiplierPerLevel = 1.2f;
     public bool BeRedWhileVacuuming;
     public bool LoadLastLevel;
-    public float OpenMouthSpeed = 1f;
+    public float MouthSpeed = 1f;
     public float FoodVacuumSpeedMultiplier = 2f;
 
     [System.Serializable]

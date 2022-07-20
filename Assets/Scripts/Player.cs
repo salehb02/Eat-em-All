@@ -62,10 +62,10 @@ public class Player : MonoBehaviour
     private void MouthControl()
     {
         if (_justVacumingFoods.Count == 0 && !_closeMouth)
-            _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 0.8f : 0, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
+            _mouthOpen = Mathf.Lerp(_mouthOpen, _vacuuming.Count > 0 ? 0.8f : 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
 
         if (_closeMouth)
-            _mouthOpen = Mathf.Lerp(_mouthOpen, 0, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
+            _mouthOpen = Mathf.Lerp(_mouthOpen, 0, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
 
         _animator.SetFloat("MouthOpen", _mouthOpen);
     }
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
         if (_justVacumingFoods.Count == 0 || _vacuuming.Count > 0 || _closeMouth)
             return;
 
-        _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f * ControlPanel.Instance.OpenMouthSpeed);
+        _mouthOpen = Mathf.Lerp(_mouthOpen, 1, Time.deltaTime * 5f * ControlPanel.Instance.MouthSpeed);
 
         if (ControlPanel.Instance.BeRedWhileVacuuming)
             FaceMaterial.SetFloat("_Fatness", Mathf.Lerp(FaceMaterial.GetFloat("_Fatness"), 1, Time.deltaTime));
