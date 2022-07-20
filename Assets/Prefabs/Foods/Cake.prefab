@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13549928d2b79d44b98cd8e7a540ad9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodSize: 1
-  Prize: 8
+  FoodSize: 3
+  Prize: 2
 --- !u!1001 &8964735628418016468
 PrefabInstance:
   m_ObjectHideFlags: 0

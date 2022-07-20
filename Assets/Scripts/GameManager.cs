@@ -102,13 +102,14 @@ public class GameManager : MonoBehaviour
             if (GetMoney() >= price)
             {
                 _presentor.SetSpeedUpgradeIntractable(true);
-                _presentor.SetSpeedUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
                 _presentor.SetSpeedUpgradeIntractable(false);
-                _presentor.SetSpeedUpgradePrice("Not enough");
+                //_presentor.SetSpeedUpgradePrice("Not enough");
             }
+            _presentor.SetSpeedUpgradePrice($"{price.ToString("#,#")}");
+
         }
 
         // Capacity upgrade price text
@@ -124,13 +125,14 @@ public class GameManager : MonoBehaviour
             if (GetMoney() >= price)
             {
             _presentor.SetCapacityUpgradeIntractable(true);
-                _presentor.SetCapacityUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
-                _presentor.SetCapacityUpgradePrice("Not enough");
+               // _presentor.SetCapacityUpgradePrice("Not enough");
             _presentor.SetCapacityUpgradeIntractable(false);
             }
+            _presentor.SetCapacityUpgradePrice($"{price.ToString("#,#")}");
+
         }
 
         // Size upgrade price text
@@ -146,13 +148,14 @@ public class GameManager : MonoBehaviour
             if (GetMoney() >= price)
             {
                 _presentor.SetSizeUpgradeIntractable(true);
-                _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");
             }
             else
             {
-                _presentor.SetSizeUpgradePrice("Not enough");
+               // _presentor.SetSizeUpgradePrice("Not enough");
                 _presentor.SetSizeUpgradeIntractable(false);
             }
+            _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");
+
         }
 
         _presentor.SetSpeedCurrentLevel(SpeedUpgrade + 1);

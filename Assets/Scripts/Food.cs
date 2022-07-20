@@ -31,7 +31,7 @@ public class Food : MonoBehaviour, IVacuumable
         if (!_eatable)
             return false;
 
-        if (playerSize >= FoodSize - 1)
+        if (playerSize >= FoodSize)
             return true;
 
         return false;

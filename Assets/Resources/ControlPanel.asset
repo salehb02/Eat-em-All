@@ -15,33 +15,51 @@ MonoBehaviour:
   SpeedUpgrades:
   - Title: Default
     Price: 0
-    NormalSpeed: 9
-    FatSpeed: 7
+    NormalSpeed: 7
+    FatSpeed: 5
   - Title: Level 1
-    Price: 20
-    NormalSpeed: 9
-    FatSpeed: 7
+    Price: 25
+    NormalSpeed: 8
+    FatSpeed: 6
   - Title: Level 2
-    Price: 70
+    Price: 90
     NormalSpeed: 9
-    FatSpeed: 7
+    FatSpeed: 8
   - Title: Level 3
     Price: 150
-    NormalSpeed: 9
-    FatSpeed: 7
+    NormalSpeed: 10
+    FatSpeed: 8
   CapacityUpgrades:
   - Title: Default
     Price: 0
-    Value: 5
+    Value: 10
   - Title: Level 1
-    Price: 30
-    Value: 15
+    Price: 15
+    Value: 12
   - Title: Level 2
-    Price: 60
-    Value: 20
+    Price: 40
+    Value: 15
   - Title: Level 3
-    Price: 100
+    Price: 90
+    Value: 18
+  - Title: Level 4
+    Price: 150
+    Value: 21
+  - Title: Level 5
+    Price: 180
     Value: 25
+  - Title: Level 6
+    Price: 250
+    Value: 28
+  - Title: Level 7
+    Price: 380
+    Value: 32
+  - Title: Level 8
+    Price: 700
+    Value: 38
+  - Title: Level 9
+    Price: 900
+    Value: 45
   SizeUpgrades:
   - Title: Default
     Price: 0
@@ -49,28 +67,28 @@ MonoBehaviour:
     FoodSizeSupport: 1
     CameraOffset: 15
   - Title: Level 1
-    Price: 30
+    Price: 40
     PlayerScale: {x: 3, y: 3, z: 3}
     FoodSizeSupport: 2
     CameraOffset: 17
   - Title: Level 2
-    Price: 75
+    Price: 200
     PlayerScale: {x: 3.5, y: 3.5, z: 3.5}
     FoodSizeSupport: 3
     CameraOffset: 19
   - Title: Level 2
-    Price: 100
+    Price: 450
     PlayerScale: {x: 4, y: 4, z: 4}
     FoodSizeSupport: 4
     CameraOffset: 21
   - Title: Level 3
-    Price: 150
+    Price: 1000
     PlayerScale: {x: 4.5, y: 4.5, z: 4.5}
     FoodSizeSupport: 5
     CameraOffset: 22
-  PriceMultiplierPerLevel: 1.2
+  PriceMultiplierPerLevel: 2
   BeRedWhileVacuuming: 1
-  LoadLastLevel: 0
+  LoadLastLevel: 1
   MouthSpeed: 8
   FoodVacuumSpeedMultiplier: 3
   MinFoodVacuumSpeed: 0.3

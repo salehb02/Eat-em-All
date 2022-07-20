@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodSize: 2
-  Prize: 10
+  Prize: 3
 --- !u!1001 &7730941550817601450
 PrefabInstance:
   m_ObjectHideFlags: 0
