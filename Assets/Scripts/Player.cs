@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public float PlayerNormalSpeed { get; private set; }
     public float PlayerFatSpeed { get; private set; }
     public float Fatness { get; private set; }
+    public bool PlayingEmotion { get; set; }
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class Player : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
 
         // Reset particles
-        var emission = FatnessParticle.emission;
+       var emission = FatnessParticle.emission;
         emission.rateOverTimeMultiplier = 0;
     }
 
@@ -255,4 +256,13 @@ public class Player : MonoBehaviour
     }
 
     public void EndVacuuming(IVacuumable vaccumable) => _vacuuming.Remove(vaccumable);
+
+    public void PlayEmotion()
+    {
+        if (PlayingEmotion)
+            return;
+
+        _animator.SetFloat("EmotionIndex", Random.Range(0, 3));
+        _animator.SetTrigger("Emotion");
+    }
 }

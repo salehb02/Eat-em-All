@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
         SpeedUpgrade++;
         UpdateUI();
         PlayerPrefs.SetInt(SPEED_PREFS, SpeedUpgrade);
+        _player.PlayEmotion();
     }
 
     public void UpgradeCapacity()
@@ -193,6 +194,7 @@ public class GameManager : MonoBehaviour
         CapacityUpgrade++;
         UpdateUI();
         PlayerPrefs.SetInt(CAPACITY_PREFS, CapacityUpgrade);
+        _player.PlayEmotion();
     }
 
     public void UpgradeSize()
@@ -209,6 +211,7 @@ public class GameManager : MonoBehaviour
         SizeUpgrade++;
         UpdateUI();
         PlayerPrefs.SetInt(SIZE_PREFS, SizeUpgrade);
+        _player.PlayEmotion();
     }
 
     private int GetFinalPrice(int price)

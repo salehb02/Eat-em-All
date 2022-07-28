@@ -1,0 +1,958 @@
+fileFormatVersion: 2
+guid: 306488542264f2247a992bc2e9edc339
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -3146577508052950819
+    second: head_armature|head_angry
+  - first:
+      74: 8550498592400285422
+    second: head_armature|head_dripping
+  - first:
+      74: 282874417588841171
+    second: head_armature|head_eat
+  - first:
+      74: -5115289583675700725
+    second: head_armature|head_eat_full
+  - first:
+      74: -7412738509640201000
+    second: head_armature|head_evil
+  - first:
+      74: -8592995492665109960
+    second: head_armature|head_idle
+  - first:
+      74: -8045546778434680504
+    second: head_armature|head_idle_full
+  - first:
+      74: -7021852509613021413
+    second: head_armature|head_smile
+  - first:
+      74: 6900829398208287203
+    second: head_armature|head_walk
+  - first:
+      74: -6161615789962344534
+    second: head_armature|head_walk_full
+  - first:
+      74: 94740503941098015
+    second: head_armature|head_eat_open
+  - first:
+      74: 4576396198432236450
+    second: head_armature|head_eat_full_open
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: head_armature|head_angry
+      takeName: head_armature|head_angry
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: EnterEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5221053
+        functionName: ExitEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_dripping
+      takeName: head_armature|head_dripping
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: EnterEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97473687
+        functionName: ExitEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_eat
+      takeName: head_armature|head_eat
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_eat_full
+      takeName: head_armature|head_eat_full
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_evil
+      takeName: head_armature|head_evil
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.023157895
+        functionName: EnterEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.96842104
+        functionName: ExitEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_idle
+      takeName: head_armature|head_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_idle_full
+      takeName: head_armature|head_idle_full
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_smile
+      takeName: head_armature|head_smile
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: EnterEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9768421
+        functionName: ExitEmotions
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_walk
+      takeName: head_armature|head_walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_walk_full
+      takeName: head_armature|head_walk_full
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_eat_open
+      takeName: head_armature|head_eat
+      internalID: 0
+      firstFrame: 3
+      lastFrame: 3.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: head_armature|head_eat_full_open
+      takeName: head_armature|head_eat_full
+      internalID: 0
+      firstFrame: 3
+      lastFrame: 3.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: head_001
+        weight: 0
+      - path: head_armature
+        weight: 0
+      - path: head_armature/base
+        weight: 0
+      - path: head_armature/base/head
+        weight: 0
+      - path: head_armature/base/head/lip4.L
+        weight: 1
+      - path: head_armature/base/head/lip4.R
+        weight: 1
+      - path: head_armature/base/head/lip5.L
+        weight: 1
+      - path: head_armature/base/head/lip5.L/mouth_water
+        weight: 1
+      - path: head_armature/base/head/lip5.R
+        weight: 1
+      - path: head_armature/base/head/mouth
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.L
+        weight: 1
+      - path: head_armature/base/head/mouth/brow.R
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.L
+        weight: 1
+      - path: head_armature/base/head/mouth/cheek.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.L/iris.L
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R
+        weight: 1
+      - path: head_armature/base/head/mouth/eye.R/iris.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip1.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip2.R
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.L
+        weight: 1
+      - path: head_armature/base/head/mouth/lip3.R
+        weight: 1
+      - path: head_armature/base/head/mouth/nose
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: ac62eb0a8924f144c84b1d8821a1f818, type: 2}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

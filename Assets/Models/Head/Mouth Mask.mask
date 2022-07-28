@@ -11,27 +11,53 @@ AvatarMask:
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: head_001.001
+  - m_Path: head_001
     m_Weight: 0
-  - m_Path: head_armature.001
+  - m_Path: head_armature
     m_Weight: 0
-  - m_Path: head_armature.001/base
+  - m_Path: head_armature/base
     m_Weight: 0
-  - m_Path: head_armature.001/base/head
+  - m_Path: head_armature/base/head
     m_Weight: 0
-  - m_Path: head_armature.001/base/head/mouth
+  - m_Path: head_armature/base/head/lip4.L
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/brow.L
+  - m_Path: head_armature/base/head/lip4.R
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/brow.R
+  - m_Path: head_armature/base/head/lip5.L
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/cheek.L
+  - m_Path: head_armature/base/head/lip5.L/mouth_water
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/cheek.R
+  - m_Path: head_armature/base/head/lip5.R
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/eye.L
+  - m_Path: head_armature/base/head/mouth
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/eye.R
+  - m_Path: head_armature/base/head/mouth/brow.L
     m_Weight: 1
-  - m_Path: head_armature.001/base/head/mouth/nose
+  - m_Path: head_armature/base/head/mouth/brow.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/cheek.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/cheek.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/eye.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/eye.L/iris.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/eye.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/eye.R/iris.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip1.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip1.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip2.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip2.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip3.L
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/lip3.R
+    m_Weight: 1
+  - m_Path: head_armature/base/head/mouth/nose
     m_Weight: 1

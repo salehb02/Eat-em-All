@@ -2,61 +2,7 @@ fileFormatVersion: 2
 guid: 7095d8bd70a7e2647a7bc70912b84d89
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 282874417588841171
-    second: head_armature|head_eat
-  - first:
-      74: -8592995492665109960
-    second: head_armature|head_idle
-  - first:
-      74: -8045546778434680504
-    second: head_armature|head_idle_full
-  - first:
-      74: 6900829398208287203
-    second: head_armature|head_walk
-  - first:
-      74: -6161615789962344534
-    second: head_armature|head_walk_full
-  - first:
-      74: -7708307714713720433
-    second: head_armature.001|head_eat
-  - first:
-      74: 700092532183062192
-    second: head_armature.001|head_eat_full
-  - first:
-      74: -5426936056644368924
-    second: head_armature.001|head_idle
-  - first:
-      74: -8105433708943533384
-    second: head_armature.001|head_idle.001
-  - first:
-      74: 1780592349451501320
-    second: head_armature.001|head_idle_full
-  - first:
-      74: -2423364770558741828
-    second: head_armature.001|head_puke
-  - first:
-      74: 1567616525151522484
-    second: head_armature.001|head_walk
-  - first:
-      74: -5472432848164019633
-    second: head_armature.001|head_walk_full
-  - first:
-      74: 7253759266669675376
-    second: head_armature.001|head_open_mouth
-  - first:
-      74: -1076251001149209624
-    second: head_armature.001|head_close_mouth
-  - first:
-      74: 563552071494926052
-    second: head_armature.001|head_open_mouth_full
-  - first:
-      74: -7054185780717559895
-    second: head_armature.001|head_idle_mouth
-  - first:
-      74: -2963919383976090066
-    second: head_armature.001|head_idle_mouth_full
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -125,7 +71,7 @@ ModelImporter:
       - path: head_armature.001/base
         weight: 0
       - path: head_armature.001/base/head
-        weight: 1
+        weight: 0
       - path: head_armature.001/base/head/mouth
         weight: 1
       - path: head_armature.001/base/head/mouth/brow.L
