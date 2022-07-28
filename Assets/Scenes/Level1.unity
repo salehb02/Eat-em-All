@@ -3575,6 +3575,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &838154991 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1061935096490665631, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
+  m_PrefabInstance: {fileID: 1391121610923897821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &862925938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10878,6 +10883,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1391121610998419790, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
+      propertyPath: FatnessParticle
+      value: 
+      objectReference: {fileID: 838154991}
     - target: {fileID: 1391121610998419795, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
       propertyPath: m_Name
       value: Player

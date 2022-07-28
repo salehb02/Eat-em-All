@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
     {
         var camOffset = ControlPanel.Instance.SizeUpgrades[SizeUpgrade].CameraOffset;
         _camera.offset = Vector3.Lerp(_camera.offset, new Vector3(0, camOffset, -camOffset), Time.deltaTime * 5f);
+
+        if (Input.GetKeyDown(KeyCode.A))
+            _player.PlayEmotion();
     }
 
     public void SpawnMoney(int moneyValue, Transform point)

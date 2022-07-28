@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public enum EmotionType {Angry = 0,Dripping = 1,Smile =2}
+
     // Public variables
     public GameObject Mouth;
     public Material FaceMaterial;
     public GameObject ToNextLevelArrow;
     public ParticleSystem FatnessParticle;
     public int MaxParticlesCount = 20;
+    public EmotionType _EmotionType;
 
     // Private variables
     private List<Food> _eatenFoods = new List<Food>();
@@ -262,7 +265,7 @@ public class Player : MonoBehaviour
         if (PlayingEmotion)
             return;
 
-        _animator.SetFloat("EmotionIndex", Random.Range(0, 3));
+        _animator.SetFloat("EmotionIndex", (int)_EmotionType);
         _animator.SetTrigger("Emotion");
     }
 }
