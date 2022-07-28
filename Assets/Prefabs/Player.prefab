@@ -407,8 +407,9 @@ MonoBehaviour:
   Mouth: {fileID: 6129067278863645927}
   FaceMaterial: {fileID: 2100000, guid: 7d1ca3746e26713439e572baa97ecddc, type: 2}
   ToNextLevelArrow: {fileID: 85593806}
-  FatnessParticle: {fileID: 0}
+  FatnessParticle: {fileID: 1061935096490665631}
   MaxParticlesCount: 20
+  _EmotionType: 0
 --- !u!1 &1465402987785625729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1159,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0
