@@ -1,3 +1,4 @@
+using ByteBrewSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +28,12 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.HasKey(LEVEL_PREFS) && PlayerPrefs.GetInt(LEVEL_PREFS) != SceneManager.GetActiveScene().buildIndex)
         {
             if (ControlPanel.Instance.LoadLastLevel)
+            {
+                //Example Progression event where the user started level 1.
+                ByteBrew.NewProgressionEvent(ByteBrewProgressionTypes.Started, "Level_Start", LEVEL_PREFS);
                 SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
+
+            }
         }
     }
 

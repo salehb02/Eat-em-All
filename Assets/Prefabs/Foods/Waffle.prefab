@@ -48,7 +48,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.97919893, y: 0.5876218, z: 0.9394941}
+  m_Size: {x: 0.95, y: 0.5876218, z: 0.91}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8979275512411333824
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodSize: 2
-  Prize: 18
+  Prize: 6
 --- !u!1001 &2463961233640530164
 PrefabInstance:
   m_ObjectHideFlags: 0

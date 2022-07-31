@@ -18,15 +18,31 @@ MonoBehaviour:
     NormalSpeed: 7
     FatSpeed: 5
   - Title: Level 1
-    Price: 25
+    Price: 15
     NormalSpeed: 8
     FatSpeed: 6
   - Title: Level 2
-    Price: 90
+    Price: 35
+    NormalSpeed: 8.5
+    FatSpeed: 6
+  - Title: Level 3
+    Price: 70
+    NormalSpeed: 8
+    FatSpeed: 7
+  - Title: Level 3
+    Price: 125
+    NormalSpeed: 8.5
+    FatSpeed: 7
+  - Title: Level 3
+    Price: 200
     NormalSpeed: 9
+    FatSpeed: 7.5
+  - Title: Level 3
+    Price: 350
+    NormalSpeed: 9.5
     FatSpeed: 8
   - Title: Level 3
-    Price: 150
+    Price: 600
     NormalSpeed: 10
     FatSpeed: 8
   CapacityUpgrades:
@@ -43,49 +59,49 @@ MonoBehaviour:
     Price: 90
     Value: 18
   - Title: Level 4
-    Price: 150
+    Price: 160
     Value: 21
   - Title: Level 5
-    Price: 180
+    Price: 250
     Value: 25
   - Title: Level 6
-    Price: 250
+    Price: 400
     Value: 28
   - Title: Level 7
-    Price: 380
+    Price: 700
     Value: 32
   - Title: Level 8
-    Price: 700
+    Price: 1000
     Value: 38
   - Title: Level 9
-    Price: 900
+    Price: 1500
     Value: 45
   SizeUpgrades:
   - Title: Default
     Price: 0
     PlayerScale: {x: 2.5, y: 2.5, z: 2.5}
     FoodSizeSupport: 1
-    CameraOffset: 15
+    CameraOffset: 12
   - Title: Level 1
     Price: 40
     PlayerScale: {x: 3, y: 3, z: 3}
     FoodSizeSupport: 2
-    CameraOffset: 17
+    CameraOffset: 13
   - Title: Level 2
-    Price: 200
+    Price: 180
     PlayerScale: {x: 3.5, y: 3.5, z: 3.5}
     FoodSizeSupport: 3
-    CameraOffset: 19
-  - Title: Level 2
-    Price: 450
+    CameraOffset: 14
+  - Title: Level 3
+    Price: 700
     PlayerScale: {x: 4, y: 4, z: 4}
     FoodSizeSupport: 4
-    CameraOffset: 21
-  - Title: Level 3
-    Price: 1000
-    PlayerScale: {x: 4.5, y: 4.5, z: 4.5}
+    CameraOffset: 15
+  - Title: Level 4
+    Price: 2000
+    PlayerScale: {x: 5, y: 5, z: 5}
     FoodSizeSupport: 5
-    CameraOffset: 22
+    CameraOffset: 16
   PriceMultiplierPerLevel: 2
   BeRedWhileVacuuming: 1
   LoadLastLevel: 1
