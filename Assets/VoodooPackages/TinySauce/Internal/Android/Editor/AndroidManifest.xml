@@ -15,11 +15,10 @@
 <application 
         android:name="androidx.multidex.MultiDexApplication"
         android:fullBackupContent="false"
-        android:allowBackup="false"
         attribute='**APPLICATION_ATTRIBUTES**'
         android:theme="@android:style/Theme.NoTitleBar"
         tools:ignore="GoogleAppIndexingWarning,MissingTvBanner"
-        tools:replace="fullBackupContent,allowBackup">
+        tools:replace="fullBackupContent">
 
   <!-- UNITY -->
   <activity
