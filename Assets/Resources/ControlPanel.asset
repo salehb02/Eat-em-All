@@ -16,35 +16,35 @@ MonoBehaviour:
   - Title: Default
     Price: 0
     NormalSpeed: 7
-    FatSpeed: 5
+    FatSpeed: 8
   - Title: Level 1
     Price: 15
-    NormalSpeed: 8
-    FatSpeed: 6
+    NormalSpeed: 7.5
+    FatSpeed: 8.5
   - Title: Level 2
     Price: 35
-    NormalSpeed: 8.5
-    FatSpeed: 6
+    NormalSpeed: 8
+    FatSpeed: 9
   - Title: Level 3
     Price: 70
-    NormalSpeed: 8
-    FatSpeed: 7
+    NormalSpeed: 8.5
+    FatSpeed: 9.5
   - Title: Level 3
     Price: 125
-    NormalSpeed: 8.5
-    FatSpeed: 7
+    NormalSpeed: 9
+    FatSpeed: 10
   - Title: Level 3
     Price: 200
-    NormalSpeed: 9
-    FatSpeed: 7.5
+    NormalSpeed: 9.5
+    FatSpeed: 10.5
   - Title: Level 3
     Price: 350
-    NormalSpeed: 9.5
-    FatSpeed: 8
+    NormalSpeed: 10
+    FatSpeed: 11
   - Title: Level 3
     Price: 600
-    NormalSpeed: 10
-    FatSpeed: 8
+    NormalSpeed: 10.5
+    FatSpeed: 11.5
   CapacityUpgrades:
   - Title: Default
     Price: 0
