@@ -600,7 +600,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     4: gameanalytics_max_enabled
-    7: gameanalytics_max_enabled
+    7: VS_ATT;gameanalytics_max_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
