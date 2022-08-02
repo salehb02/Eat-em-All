@@ -157,9 +157,20 @@ public class Player : MonoBehaviour
         _closeMouth = false;
     }
 
+    Coroutine spitCoroutine;
+
     public void SpitFoods(FoodToMoneyConvertor convertor)
     {
-        StartCoroutine(SpitFoodsCoroutine(convertor));
+        spitCoroutine = StartCoroutine(SpitFoodsCoroutine(convertor));
+    }
+
+    public void StopSpitting()
+    {
+        if (spitCoroutine == null)
+            return;
+
+        StopCoroutine(spitCoroutine);
+        _spitting = false;
     }
 
     private IEnumerator SpitFoodsCoroutine(FoodToMoneyConvertor convertor)
@@ -174,12 +185,14 @@ public class Player : MonoBehaviour
             food.Spitted(convertor.FoodEnterPoint.transform.position);
             _eatenFoods.Remove(food);
             _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
-            _gameManager.SpawnMoney(food.Prize, convertor.MoneySpawnPoint.transform);
+            convertor.InstantiateMoney();
+            //_gameManager.SpawnMoney(food.Prize, convertor.MoneySpawnPoint.transform);
             convertor.TriggerVacuum();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         _spitting = false;
+        spitCoroutine = null;
     }
 
     private void OnTriggerStay(Collider other)

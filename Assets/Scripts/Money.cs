@@ -15,9 +15,6 @@ public class Money : MonoBehaviour, IVacuumable
         _rigid = GetComponent<Rigidbody>();
         _gameManager = FindObjectOfType<GameManager>();
         _player = FindObjectOfType<Player>();
-
-        // Initial force to throw money
-        _rigid.AddForce(-transform.forward * 150f);
     }
 
     private void Update()
@@ -53,6 +50,9 @@ public class Money : MonoBehaviour, IVacuumable
     public void StartVacuum()
     {
         _moveToPlayer = true;
+
+        if (_rigid.isKinematic == true)
+            _rigid.isKinematic = false;
 
         foreach (var collider in GetComponentsInChildren<Collider>())
             collider.enabled = false;

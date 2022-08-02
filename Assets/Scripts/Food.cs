@@ -42,14 +42,14 @@ public class Food : MonoBehaviour, IVacuumable
         transform.SetParent(null);
         gameObject.SetActive(true);
 
-        transform.DOMove(pointToGo, 0.5f).OnComplete(() =>
+        transform.DOMove(pointToGo, 0.3f).OnComplete(() =>
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.5f);
         });
 
-        transform.DOScale(_initScale, 0.25f).OnComplete(() =>
+        transform.DOScale(_initScale, 0.15f).OnComplete(() =>
         {
-            transform.DOScale(Vector3.zero, 0.25f);
+            transform.DOScale(Vector3.zero, 0.15f);
         });
     }
 

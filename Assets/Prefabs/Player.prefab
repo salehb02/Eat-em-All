@@ -377,7 +377,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 1
   m_Center: {x: 0, y: 0.73, z: 0}
 --- !u!114 &1391121610998419788
 MonoBehaviour:
@@ -409,7 +409,7 @@ MonoBehaviour:
   ToNextLevelArrow: {fileID: 85593806}
   FatnessParticle: {fileID: 1061935096490665631}
   MaxParticlesCount: 20
-  _EmotionType: 0
+  _EmotionType: 1
 --- !u!1 &1465402987785625729
 GameObject:
   m_ObjectHideFlags: 0

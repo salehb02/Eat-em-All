@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1839120324876473805}
   - component: {fileID: 137220445365053793}
   - component: {fileID: 3072739948025585879}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8956753291538818870}
   - component: {fileID: 194856127741370705}
   - component: {fileID: 4521275363670481355}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 4828890945306765847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.61, y: 1.46, z: -22.05}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1392431176911044021}
   - {fileID: 2139118348231607501}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 7917061459304900515}
   - component: {fileID: 785007269022392718}
   - component: {fileID: 3246206295266155920}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

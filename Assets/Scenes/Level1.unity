@@ -858,7 +858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 42, y: 0, z: 0}
 --- !u!114 &212175018
 MonoBehaviour:
@@ -11035,10 +11035,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1391121610998419790, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
-      propertyPath: _EmotionType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1391121610998419795, guid: f971bbda9174ac14bb819d71ff202567, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11054,7 +11050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8680028259756066780, guid: 20aa4c037388cab47a9eeaf58f748689, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8680028259756066780, guid: 20aa4c037388cab47a9eeaf58f748689, type: 3}
       propertyPath: m_LocalPosition.x

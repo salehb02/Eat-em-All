@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.LookRotation(CustomObjectLookAt.transform.position - transform.position);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(CustomObjectLookAt.transform.position - transform.position), Time.deltaTime * 5f);
         }
 
         _animator.SetFloat("Velocity", Velocity);
@@ -58,7 +59,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void GetVelocity()
     {
-        Velocity = ((transform.position - _previousPosition).magnitude) / Time.deltaTime;
+        var heightFixedCurrentPos = transform.position;
+        heightFixedCurrentPos.y = 0;
+
+        var heightFixedPreviousPos = _previousPosition;
+        heightFixedPreviousPos.y = 0;
+
+        Velocity = ((heightFixedCurrentPos - heightFixedPreviousPos).magnitude) / Time.deltaTime;
         _previousPosition = transform.position;
     }
 }
