@@ -1,4 +1,3 @@
-using ByteBrewSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
             if (ControlPanel.Instance.LoadLastLevel)
             {
                 //Example Progression event where the user started level 1.
-                ByteBrew.NewProgressionEvent(ByteBrewProgressionTypes.Started, "Level_Start", LEVEL_PREFS);
                 SceneManager.LoadScene(PlayerPrefs.GetInt(LEVEL_PREFS));
 
             }
@@ -67,10 +65,12 @@ public class GameManager : MonoBehaviour
             _player.PlayEmotion();
     }
 
-    public void SpawnMoney(int moneyValue, Transform point)
+    public Money SpawnMoney(int moneyValue, Transform point)
     {
         var money = Instantiate(MoneyPrefab, point.position, point.rotation, null);
         money.SetValue(moneyValue);
+
+        return money;
     }
 
     public void AddMoney(int amount)
@@ -133,12 +133,12 @@ public class GameManager : MonoBehaviour
 
             if (GetMoney() >= price)
             {
-            _presentor.SetCapacityUpgradeIntractable(true);
+                _presentor.SetCapacityUpgradeIntractable(true);
             }
             else
             {
-               // _presentor.SetCapacityUpgradePrice("Not enough");
-            _presentor.SetCapacityUpgradeIntractable(false);
+                // _presentor.SetCapacityUpgradePrice("Not enough");
+                _presentor.SetCapacityUpgradeIntractable(false);
             }
             _presentor.SetCapacityUpgradePrice($"{price.ToString("#,#")}");
 
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         if (SizeUpgrade == ControlPanel.Instance.SizeUpgrades.Length - 1)
         {
             _presentor.SetSizeUpgradeIntractable(false);
-        _presentor.SetSizeUpgradePrice("Maxed");
+            _presentor.SetSizeUpgradePrice("Maxed");
         }
         else
         {
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-               // _presentor.SetSizeUpgradePrice("Not enough");
+                // _presentor.SetSizeUpgradePrice("Not enough");
                 _presentor.SetSizeUpgradeIntractable(false);
             }
             _presentor.SetSizeUpgradePrice($"{price.ToString("#,#")}");

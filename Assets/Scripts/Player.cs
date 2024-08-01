@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public enum EmotionType {Angry = 0,Dripping = 1,Smile =2}
+    public enum EmotionType { Angry = 0, Dripping = 1, Smile = 2 }
 
     // Public variables
     public GameObject Mouth;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
 
         // Reset particles
-       var emission = FatnessParticle.emission;
+        var emission = FatnessParticle.emission;
         emission.rateOverTimeMultiplier = 0;
     }
 
@@ -185,8 +185,7 @@ public class Player : MonoBehaviour
             food.Spitted(convertor.FoodEnterPoint.transform.position);
             _eatenFoods.Remove(food);
             _gameManager.UpdateFoodCapacity(_eatenFoods.Count, FoodCapacity);
-            convertor.InstantiateMoney();
-            //_gameManager.SpawnMoney(food.Prize, convertor.MoneySpawnPoint.transform);
+            convertor.InstantiateMoney(food.Prize);
             convertor.TriggerVacuum();
             yield return new WaitForSeconds(0.1f);
         }

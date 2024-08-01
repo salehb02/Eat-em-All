@@ -60,14 +60,15 @@ public class FoodToMoneyConvertor : MonoBehaviour
 
     public void TriggerVacuum() => _animator.SetTrigger("Vacuum");
 
-    public void InstantiateMoney()
+    public void InstantiateMoney(int prize)
     {
-        StartCoroutine(InstantiateMoneyCoroutine());
+        StartCoroutine(InstantiateMoneyCoroutine(prize));
     }
 
-    private IEnumerator InstantiateMoneyCoroutine()
+    private IEnumerator InstantiateMoneyCoroutine(int prize)
     {
-        var money = Instantiate(gameManager.MoneyPrefab, MoneySpawnPoint.transform.position, MoneySpawnPoint.transform.rotation);
+        var money = gameManager.SpawnMoney(prize, MoneySpawnPoint.transform);
+
         var rigid = money.GetComponent<Rigidbody>();
         rigid.AddForce(-transform.forward * 150f);
         rigid.isKinematic = true;
@@ -81,7 +82,7 @@ public class FoodToMoneyConvertor : MonoBehaviour
                 continue;
 
             holder.IsGoingToFull = true;
-            rigid.DOMove(holder.Position, 0.5f).OnComplete(()=> { holder.Money = money.gameObject; holder.IsFull = true; });
+            rigid.DOMove(holder.Position, 0.5f).OnComplete(() => { holder.Money = money.gameObject; holder.IsFull = true; });
             yield break;
         }
     }
